@@ -1,0 +1,2 @@
+pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V theme=white -V lang=fi
+pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html

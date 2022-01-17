@@ -1,0 +1,15 @@
+plugins:
+  - jekyll-relative-links
+  - jekyll-theme-cayman
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - CONTRIBUTING.md
+  - README.md
+  - LICENSE.md
+titles_from_headings:
+  enabled: false
+theme: jekyll-theme-cayman
+title: Luennot
+description: Sekalaisia luentoja ja esityksiä
