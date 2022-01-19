@@ -1,7 +1,7 @@
-% Viipuri
+% Viipuri 1600-1700-luvuilla
 % Antti Härkönen
 % 2022-02-09
 
-# Käkisalmen läänin lautamiehet
+# Viipurin kaupunkirakenteen muutos 1600-1700-luvuilla
 
-## Datan muoto
+## 
