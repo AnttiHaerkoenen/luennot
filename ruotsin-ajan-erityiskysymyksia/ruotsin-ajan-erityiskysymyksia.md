@@ -15,7 +15,8 @@
 
 ### Karttojen digitointi
 
-<iframe width="300" height="200" frameborder="0" scrolling="no" allowfullscreen src="https://arcg.is/0qbqzC0"></iframe>
+- [Viipurin digitaalinen atlas](https://arcg.is/0qbqzC0)
+- rakennukset vektorimuodossa
 
 ## Lähteet
 
