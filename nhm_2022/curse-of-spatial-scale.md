@@ -5,12 +5,15 @@
 # Ecological fallacy
 
 - common statistical problem that arises from aggregation
-- 
-When many local features are combined, they may create seemingly co-occurring phenomena. 
-These can easily be interpreted as indicators of causal relationship.
+- several features are combined, they may create seemingly co-occurring phenomena
+- these may be interpreted as causal relationships
 
-One common subset of ecological fallacy is the modifiable areal unit problem (MAUP). 
-This refers to the fact that areal units can and will change arbitrarily, which renders statistics incompatible. 
+# MAUP
+
+- modifiable areal unit problem
+- subset of ecological fallacy
+- areal units can change arbitrarily
+- rarely discussed in historical studies
 MAUP is a classic and well-known problem in the context of spatial sciences, but it is rarely discussed in historical studies.'
 
 Quantitative studies of the past often require the use of administrative units as statistical units. 
