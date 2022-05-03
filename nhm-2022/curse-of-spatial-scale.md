@@ -14,7 +14,6 @@
 - subset of ecological fallacy
 - areal units can change arbitrarily
 - rarely discussed in historical studies
-MAUP is a classic and well-known problem in the context of spatial sciences, but it is rarely discussed in historical studies.'
 
 Quantitative studies of the past often require the use of administrative units as statistical units. 
 Such comparisons across time and space are especially common in studies of demographical and economic history. 
