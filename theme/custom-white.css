@@ -15,7 +15,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 :root {
-    --r-background-color: #fff;
+    --r-background-color: #abd0d0;
     --r-main-font: Source Sans Pro, Helvetica, sans-serif;
     --r-main-font-size: 42px;
     --r-main-color: #222;
