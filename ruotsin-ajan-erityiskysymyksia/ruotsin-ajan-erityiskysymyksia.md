@@ -19,7 +19,7 @@
 
 ##
 
-![kivirakennusten määrä Vanhassa kaupungissa](./img/kivirakennukset.png)
+![kivirakennusten määrä Vanhassa kaupungissa](./ruotsin-ajan-erityiskysymyksia/img/kivirakennukset.png)
 
 ## Regulaatio
 
@@ -76,7 +76,7 @@
 
 ##
 
-![Rakennukset ja tontit 1820](./img/grundritning1820color.jpg)
+![Rakennukset ja tontit 1820](./ruotsin-ajan-erityiskysymyksia/img/grundritning1820color.jpg)
 
 ## Varallisuus
 
