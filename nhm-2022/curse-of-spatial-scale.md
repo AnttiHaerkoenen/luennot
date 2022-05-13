@@ -28,12 +28,13 @@
 ## Administrative units
 
 - quantitative historical studies usually use data collected by administrative unit
+- common in:
+  + economic history/cliometrics
+  + historical demography
 - administrative units keep changing
 
 ## 
 
-Quantitative studies of the past often require the use of administrative units as statistical units.
-Such comparisons across time and space are especially common in studies of demographical and economic history.
 The fact that administrative units differ from one another already creates several problems for the reliability.
 Not only can they change diachronically, but they can also have radically different sizes and shapes depending on country and various geographic factors.
 
@@ -43,7 +44,10 @@ Not only can they change diachronically, but they can also have radically differ
 
 ## Dealing with spatial issues
 
-Historians tend to deal with these problems either by ignoring them or by excluding mutating areal units from their analyses.
+- removing problematic areas
+  + analyses are weaker
+  + can introduce bias (e.g. quickly changing areas can be growing fast)
+- ignoring problems completely
 
 - fine-grained spatial analysis reduces the effects of spatial scale
 - not enough ready-made data available
@@ -52,7 +56,7 @@ Historians tend to deal with these problems either by ignoring them or by exclud
 ## Adjusting areal units
 
 - estimating and correcting for the impact of changing borders
-  + used in Historical GIS project
+  + used in Historical GIS projects (e.g. GBHGIS)
 
 # Vyborg
 
