@@ -31,12 +31,21 @@
 - common in:
   + economic history/cliometrics
   + historical demography
-- administrative units keep changing
 
-## 
+##
 
-The fact that administrative units differ from one another already creates several problems for the reliability.
-Not only can they change diachronically, but they can also have radically different sizes and shapes depending on country and various geographic factors.
+- administrative units keep changing 
+  * diachronic change
+  * local differences
+- Eurostat's [NUTS](https://ec.europa.eu/statistical-atlas/viewer/) areas are very different between countries
+  * *disgusting*
+  * leads to misleading choropleth maps and statistical analyses
+
+##
+
+![Population density by NUTS-3 area](./nhm-2022/img/pop_density_nuts-3.png)
+
+dieghernan, Wikimedia commons
 
 # Problems with scale
 
@@ -49,9 +58,12 @@ Not only can they change diachronically, but they can also have radically differ
   + can introduce bias (e.g. quickly changing areas can be growing fast)
 - ignoring problems completely
 
+## Fine-grained data
+
 - fine-grained spatial analysis reduces the effects of spatial scale
-- not enough ready-made data available
-- solutions to such problems require vast amounts of work
+- problems:
+  + not enough ready-made data available
+  + solutions to such problems require vast amounts of work
 
 ## Adjusting areal units
 
@@ -62,7 +74,7 @@ Not only can they change diachronically, but they can also have radically differ
 
 ## Finnish and Russian population
 
-- major Russian minority before 1917
+- large Russian minority before 1917
 - Orthodoxy used as a proxy for Russian nationality
 
 ## Changing segregation
