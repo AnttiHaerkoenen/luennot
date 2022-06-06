@@ -12,9 +12,15 @@
 
 ## Example: Treaty of Nöteborg and its impact
 
-- supposedly the 1323 frontier explains many demographic and economic differences between eastern and western Finland
-- reality: no set border for the most part
-- seeing patterns that look vaguely like the 1323 border an example of ecological fallacy
+- supposedly the 1323 border explains influences demographic and economic differences between eastern and western Finland
+- but in reality
+  + no set border for the most part
+  + no direct causal connection
+- seeing patterns that look vaguely like the 1323 border is an example of ecological fallacy
+
+##
+
+![Nöteborg Treaty 1323](./nhm-2022/img/1323.jpg)
 
 ## MAUP
 
@@ -22,8 +28,6 @@
 - subset of ecological fallacy
 - areal units can change arbitrarily
 - rarely discussed in historical studies
-
-# The Problem of the administrative unit
 
 ## Administrative units
 
@@ -47,9 +51,7 @@
 
 dieghernan, Wikimedia commons
 
-# Problems with scale
-
-## Scale
+# Solutions
 
 ## Dealing with spatial issues
 
@@ -88,3 +90,14 @@ dieghernan, Wikimedia commons
 
 - population located down to plot level
 - raster file representing population density
+  + 50 by 50 meter resolution
+  + continuous population density model
+- almost ignores changes in suburb boundaries
+
+# Summary
+
+## Problems
+
+## 
+
+- problems with spatial scale can never be really solved, since data is inherently full of compromises
