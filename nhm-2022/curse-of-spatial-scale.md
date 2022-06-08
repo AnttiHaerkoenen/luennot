@@ -12,8 +12,8 @@
 
 ## Example: Treaty of Nöteborg and its impact
 
-- supposedly the 1323 border explains influences demographic and economic differences between eastern and western Finland
-- but in reality
+- supposedly the 1323 border influences demographic and economic differences between eastern and western Finland
+- but in reality:
   + no set border for the most part
   + no direct causal connection
 - seeing patterns that look vaguely like the 1323 border is an example of ecological fallacy
@@ -57,7 +57,7 @@ dieghernan, Wikimedia commons
 
 - removing problematic areas
   + analyses are weaker
-  + can introduce bias (e.g. quickly changing areas can be growing fast)
+  + can introduce bias (e.g. quickly changing areas can be growing especially fast)
 - ignoring problems completely
 
 ## Fine-grained data
@@ -71,6 +71,9 @@ dieghernan, Wikimedia commons
 
 - estimating and correcting for the impact of changing borders
   + used in Historical GIS projects (e.g. GBHGIS)
+- imputation and interpolation
+  + requires statistical knowledge
+  + potentially *very* deceptive
 
 # Vyborg
 
@@ -86,6 +89,10 @@ dieghernan, Wikimedia commons
 - St. Petersburg suburb shrinks over a long period
   + poll tax records change yearly
 
+##
+
+![](./nhm-2022/img/plan1885.jpg)
+
 ## Fine-grained analysis
 
 - population located down to plot level
@@ -98,6 +105,12 @@ dieghernan, Wikimedia commons
 
 ## Problems
 
-## 
+- MAUP
+- ecological fallacy
+- lack of data
 
-- problems with spatial scale can never be really solved, since data is inherently full of compromises
+## Solutions
+
+- improved data collection
+- interpolation techniques
+- problems with spatial scale can never be fully solved, as data is inherently full of compromises
