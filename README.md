@@ -12,4 +12,4 @@
 
 ### Tampere 2022
 
-[Viipurin henkikirjojen puuttuvat ortodoksit]() [tulostetttava]()
+[Viipurin henkikirjojen puuttuvat ortodoksit](./hitu-2022/puuttuvat-ortodoksit.html) [tulostetttava](./hitu-2022/puuttuvat-ortodoksit_print.html)

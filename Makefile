@@ -1,18 +1,30 @@
+###############################################
+# Commands                                    #
+###############################################
+
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
-	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi
-	pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html
+	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md \
+-o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi -V theme=white \
+ --embed-resources --standalone
+	pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o \
+./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html --embed-resources --standalone
 
 ## The curse of spatial scale
 spatial_scale:
-	pandoc -t revealjs -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale.html -i --slide-level 2 -V lang=fi
-	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html
+	pandoc -t revealjs -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale.html -i \
+--slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
+	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html --embed-resources --standalone
+
+embedding := <section id="g1" class="title-slide slide level2"><iframe scrolling="no" src=".\/img\/fig2.html" height="800" width="100%"><\/iframe><\/section>
 
 ## Puuttuvat ortodoksit
 puuttuvat_ortodoksit:
-	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i --slide-level 2 -V lang=fi
-	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html
-
+	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i\
+ --slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
+	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html --embed-resources \
+ --standalone
+	sed '/<section id="henkikirjat-1878-asetuksessa"/i$(embedding)' ./hitu-2022/puuttuvat-ortodoksit.html -i
 
 #################################################################################
 # Self Documenting Commands                                                     #
