@@ -1,17 +1,17 @@
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
-	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi --self-contained
+	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi
 	pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html
 
 ## The curse of spatial scale
 spatial_scale:
-	pandoc -t revealjs -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale.html -i --slide-level 2 -V lang=fi --self-contained
-	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html --self-contained
+	pandoc -t revealjs -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale.html -i --slide-level 2 -V lang=fi
+	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html
 
 ## Puuttuvat ortodoksit
 puuttuvat_ortodoksit:
-	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o /hitu-2022/puuttuvat-ortodoksit.html -i --slide-level 2 --css=theme/custom-white.css -V lang=fi --self-contained
-	pandoc -s /hitu-2022/puuttuvat-ortodoksit.md -o /hitu-2022/puuttuvat-ortodoksit_print.html --self-contained
+	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i --slide-level 2 -V lang=fi
+	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html
 
 
 #################################################################################
