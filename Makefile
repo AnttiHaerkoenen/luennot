@@ -16,10 +16,11 @@ spatial_scale:
 --slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
 	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html --embed-resources --standalone
 
-embedding := <section id="g1" class="title-slide slide level2"><iframe scrolling="no" src=".\/img\/fig2.html" height="800" width="100%"><\/iframe><\/section>
+embedding := <section id="g1" class="title-slide slide level2"><iframe scrolling="no" src=".\/img\/fig2.html" height="600" width="1200"><\/iframe><\/section>
 
 ## Puuttuvat ortodoksit
 puuttuvat_ortodoksit:
+	convert ./hitu-2022/img/plan1876.jpg -resize 20% ./hitu-2022/img/plan1876_resized.jpg
 	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i\
  --slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
 	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html --embed-resources \
