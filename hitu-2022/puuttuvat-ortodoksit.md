@@ -4,15 +4,26 @@
 
 # Johdanto
 
-##
+## Viipurin väestö
 
-![](./img/fig1.png)
+- 1800-luvulla Viipurissa oli laaja venäläinen vähemmistö
+- suurin osa ortodokseista oli venäläisiä
+- ortodoksien tarkka määrä on epäselvää
+- metrikat eivät säästyneet
 
-## Henkikirjat 1878 asetuksessa
+## Henkikirjat vuoden 1878 asetuksessa
 
 - yhteiskuntaluokat
 - värväys
 - uskonto
+
+##
+
+![](./img/fig1.png)
+
+##
+
+![](./img/fig2_resized.png)
 
 # Syyt
 
@@ -37,7 +48,7 @@
 
 ##
 
-![Pietarin esikaupunki 1885](./img/plan1885.jpg)
+![Pietarin esikaupunki 1885](./img/plan1885_resized.jpg)
 
 ## Viipurin maalaiskunta
 
@@ -46,7 +57,7 @@
 - ortodoksisissa srk voi olla jäseniä laajalta alueelta
 - Viipurin mlk oli yksi Suomen suurimmista kaupungeista
 
-# Identiteetti ja ilmoitushalukkuus
+# Ilmoitushalukkuus ja identiteetit
 
 ## Identiteetin muutos
 
@@ -82,6 +93,14 @@
 
 ## Syyt eroihin
 
-- joillakin selvästi pienempi määrä ortodokseja kuin toisilla
+- joillakin henkikirjoittajilla selvästi pienempi määrä ortodokseja kuin toisilla
 - eroja työinnossa?
   * jotkut ovat saattaneet korjata uskontotietoja edellisten vuosien perusteella
+
+# Lopuksi
+
+## Miksi tällä on väliä?
+
+- lukumäärillä on väliä
+- sisällissodan vaikutusten arviointi vaikeaa
+- samoin etnisten ryhmien välisten suhteiden

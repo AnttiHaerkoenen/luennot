@@ -21,11 +21,13 @@ embedding := <section id="g1" class="title-slide slide level2"><iframe scrolling
 ## Puuttuvat ortodoksit
 puuttuvat_ortodoksit:
 	convert ./hitu-2022/img/plan1876.jpg -resize 20% ./hitu-2022/img/plan1876_resized.jpg
+	convert ./hitu-2022/img/fig2.png -resize 70% ./hitu-2022/img/fig2_resized.png
+	convert ./hitu-2022/img/plan1885.jpg -resize 27.5% ./hitu-2022/img/plan1885_resized.jpg
 	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i\
- --slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
+ --slide-level 2 -V lang=fi --css ./theme/custom-white.css --embed-resources --standalone
 	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html --embed-resources \
  --standalone
-	sed '/<section id="henkikirjat-1878-asetuksessa"/i$(embedding)' ./hitu-2022/puuttuvat-ortodoksit.html -i
+	sed 's/<img data-src=".\/img\/fig2_resized.png" \/>/$(embedding)/' ./hitu-2022/puuttuvat-ortodoksit.html -i
 
 #################################################################################
 # Self Documenting Commands                                                     #
