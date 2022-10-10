@@ -102,5 +102,5 @@
 ## Miksi tällä on väliä?
 
 - lukumäärillä on väliä
-- sisällissodan vaikutusten arviointi vaikeaa
-- samoin etnisten ryhmien välisten suhteiden
+- sisällissodan vaikutusten arviointi vaikeaa ilman luotettavaa dataa
+- samoin etnisten ryhmien välisten suhteiden tutkimus
