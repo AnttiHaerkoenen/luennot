@@ -106,5 +106,5 @@
 
 ## Spatiaalinen segregaatio
 
-- väitöskirjan
+- väitöskirjan aihe
 - vaatii hyvää dataa ortodoksisen väestön muutoksista
