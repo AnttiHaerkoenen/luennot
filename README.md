@@ -8,7 +8,7 @@
 
 [The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html) ([print](./nhm-2022/curse-of-spatial-scale_print.html))
 
-# Histororiantutkimuksen päivät
+# Historiantutkimuksen päivät
 
 ### Tampere 2022
 

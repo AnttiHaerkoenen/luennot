@@ -9,11 +9,11 @@
 - 1800-luvulla Viipurissa oli laaja venäläinen vähemmistö
 - suurin osa ortodokseista oli venäläisiä
 - ortodoksien tarkka määrä on epäselvää
-- metrikat eivät säästyneet
+- metrikat eivät ole säilyneet
 
 ## Henkikirjat vuoden 1878 asetuksessa
 
-- yhteiskuntaluokat
+- yhteiskuntaluokat (itsellinen, palvelija ym.)
 - värväys
 - uskonto
 
@@ -67,15 +67,15 @@
 
 ## Viitseliäisyys
 
-- 1881 useat edellisenä vuonna ortodoksisiksi merkityt perheet jätetty merkitsemättä
-  * oletetaan olevan luterilaisia
+- 1881 useat 1880 ortodokseiksi merkityt perheet jätetty merkitsemättä ortodokseiksi
+  * lasketaan siis yhteenvedoissa luterilaisiksi
   * (tämän takia kyselyissä ei pitäisi olla oletusvastauksia!)
-- ilmoitushalukkuus on ilmeisesti matala
+- ilmoitushalukkuus oli ilmeisesti matala
 - alkuperäiset lomakkeet eivät ole säilyneet
 
 ## Jäsenkätkentä
 
-- Kannaksen ort. srk jättivät jäseniään kirjaamatta (Loima 2002)
+- Karjalan kannaksen ort. srk jättivät jäseniään kirjaamatta (Loima 2002)
 - halu välttää poliittisia konflikteja
 - henkikirjojen sabotaasi?
   * passiivinen vastarinta venäläistämistä vastaan
@@ -95,12 +95,16 @@
 
 - joillakin henkikirjoittajilla selvästi pienempi määrä ortodokseja kuin toisilla
 - eroja työinnossa?
-  * jotkut ovat saattaneet korjata uskontotietoja edellisten vuosien perusteella
+  * uskontotietoja mahdollisesti korjattu edellisten vuosien tietojen perusteella
 
 # Lopuksi
 
 ## Miksi tällä on väliä?
 
-- lukumäärillä on väliä
 - sisällissodan vaikutusten arviointi vaikeaa ilman luotettavaa dataa
 - samoin etnisten ryhmien välisten suhteiden tutkimus
+
+## Spatiaalinen segregaatio
+
+- väitöskirjan
+- vaatii hyvää dataa ortodoksisen väestön muutoksista
