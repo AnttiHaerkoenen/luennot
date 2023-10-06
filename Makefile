@@ -2,18 +2,24 @@
 # Commands                                                                        #
 ###################################################################################
 
+## Variola - Finland 1918-19
+variola:
+	pandoc -t revealjs -s ./maantieteen-paivat-2023/variola.md \
+	-o ./maantieteen-paivat-2023/variola.html -i --slide-level 2 -V lang=en -V theme=white \
+    --embed-resources --standalone
+
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
 	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md \
--o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi -V theme=white \
- --embed-resources --standalone
+	-o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi -V theme=white \
+ 	--embed-resources --standalone
 	pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o \
-./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html --embed-resources --standalone
+	./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html --embed-resources --standalone
 
 ## The curse of spatial scale
 spatial_scale:
 	pandoc -t revealjs -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale.html -i \
---slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
+	--slide-level 2 -V lang=fi -V theme=white --embed-resources --standalone
 	pandoc -s ./nhm-2022/curse-of-spatial-scale.md -o ./nhm-2022/curse-of-spatial-scale_print.html --embed-resources --standalone
 
 embedding := <section id="g1" class="title-slide slide level2"><iframe scrolling="no" src=".\/img\/fig2.html" height="600" width="1200"><\/iframe><\/section>
@@ -24,9 +30,9 @@ puuttuvat_ortodoksit:
 	convert ./hitu-2022/img/fig2.png -resize 70% ./hitu-2022/img/fig2_resized.png
 	convert ./hitu-2022/img/plan1885.jpg -resize 27.5% ./hitu-2022/img/plan1885_resized.jpg
 	pandoc -t revealjs -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit.html -i\
- --slide-level 2 -V lang=fi --css ./theme/custom-white.css --embed-resources --standalone
+ 	--slide-level 2 -V lang=fi --css ./theme/custom-white.css --embed-resources --standalone
 	pandoc -s ./hitu-2022/puuttuvat-ortodoksit.md -o ./hitu-2022/puuttuvat-ortodoksit_print.html --embed-resources \
- --standalone
+ 	--standalone
 	sed 's/<img data-src=".\/img\/fig2_resized.png" \/>/$(embedding)/' ./hitu-2022/puuttuvat-ortodoksit.html -i
 
 #################################################################################
