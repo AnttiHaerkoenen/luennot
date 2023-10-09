@@ -19,23 +19,135 @@
 - Jennerian vaccination in the late 1700s
 - mandatory vaccination for children in Finland in 1883
 - smallpox no longer endemic in Finland after 1890s
-- *HOWEVER*
+
+## However...
+
 - widespred vaccine hesitancy
 - Kuhnean antivaccine movement popular in the 1910s
+- smallpox still endemic in Russia proper
 
-##
+# Finnish Civil War and Disease
 
-![Variola cases by month in Finland](./img/waves.png)
+## 
 
 ##
 
 ![Incidence of Variola for every 100 000 inhabitants](./img/map.png)
 
+# Data
+
+## Healthcare districts
+
+- Finland was divided into 53 medical districts *piirilääkäripiiri*
+- The area of districts evolved over time
+- Each had a district medical officer (*piirilääkäri*) charged with reporting on local conditions
+  * medical statistics do not correspond to other statistical units
+- Cities had their own medical boards
+
+## Medical data
+
+- Annual reports of the Central Medical Board (*Lääkintöhallitus*) report diseases by medical districts and cities
+- These do not include the many cases in garrisons and prison camps
+
+## Spatial data
+
+- Finnish municipalities in 1918 digitized, then combined into medical districts
+- Cities are included in the district that surrounds them, in reality they were independent units
+
 # Geospatial analysis
 
-## Bayesian spatial regression
+## Distance to Russia and Variola
+
+- *x_i* distance to Russian border (km) was measured for each medical district *i*
+- *y_i* incidence of Variola
 
 ##
 
+![](./img/distance_to_russia.png)
+
+## Bayesian spatial regression
+
+## Model (1/2)
+
 $$ y_i \sim Poisson(\lambda_i) $$
 $$ log \lambda_i = \beta_0 + \beta_1 x_i + \theta_i + \phi_i $$
+$$ \theta_i \sim Normal(\mu=0, \tau=\tau_{independent}) $$
+$$ \phi | \phi_{j~i} \sim Normal(\mu=\alpha \sum^{n_i}_{j=1} \phi_j, \tau=\tau_{spatial}) $$
+
+## Model (2/2)
+
+$$ \beta_0 \sim Normal(\mu=4, \sigma=0.05) $$
+$$ \beta_1 \sim Normal(\mu=0, \sigma=0.05) $$
+$$ \tau_{independent} \sim Gamma(\alpha=1, \beta=1) $$
+$$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
+
+## Results
+
+- 95 % credible interval (CI) for *β_1* indicates significant effect of distance to Russia (*x_i*)
+  * 1918 CI: from -0.0064 to -0.00078
+  * 1919 CI: from -0.014 to -0.0028
+  * very small numbers are explained by the fact *x_i* is measured in hundreds of km
+
+# The two waves
+
+## 1918 vs 1919
+
+- Two distinct peaks in reported civilian smallpox cases
+- End of the Civil War, May 1918
+- Winter and Spring 1919
+
+## 
+
+![Variola cases by month in Finland](./img/waves.png)
+
+## Local patterns
+
+1. two peaks
+2. peak in 1918, no peak in 1919
+3. no peak in 1918, peak in 1919
+4. very few or no cases
+
+## 1. Two peaks
+
+- Karelian Isthmus and Ladoga coast
+- Areas most dependent on Petrograd before 1917
+- Tampere
+
+##
+
+![cases in Viipuri district](./img/viipuri.png)
+
+## 2. Peak in 1918, no peak in 1919
+
+- Old Tavastian areas, except Tampere
+
+##
+
+![cases in Hollola district](./img/hollola.png)
+
+## 3. No peak in 1918, peak in 1919
+
+- Areas outside of the most intensive fighting in the Civil War
+- Mostly areas influenced by Viipuri and Petrograd (before 1917)
+- Pori district in the west
+
+##
+
+![cases in Mikkeli district](./img/mikkeli.png)
+
+## 4. Very few or no cases
+
+- Northernmost Finland was safe, likely due to the very low population density
+- Western islands protected by Baltic sea
+- Smallpox needed higher population density to survive than the Spanish flu
+
+##
+
+![Population density of Finland in 1918](./img/density.png)
+
+# Summary
+
+## Russian influence
+
+- distance to Russia explains east-west differences within Finland
+- Finnish civil war explains outbreaks in the south

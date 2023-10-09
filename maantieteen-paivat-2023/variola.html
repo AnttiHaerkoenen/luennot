@@ -51,7 +51,6 @@ width: 0.8em;
 margin: 0 0.8em 0.2em -1.6em;
 vertical-align: middle;
 }
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
   <style type="text/css">
 @font-face {
@@ -414,19 +413,24 @@ periods</li>
 1883</li>
 <li class="fragment">smallpox no longer endemic in Finland after
 1890s</li>
-<li class="fragment"><em>HOWEVER</em></li>
+</ul>
+</section>
+<section id="however" class="slide level2">
+<h2>However…</h2>
+<ul>
 <li class="fragment">widespred vaccine hesitancy</li>
 <li class="fragment">Kuhnean antivaccine movement popular in the
 1910s</li>
+<li class="fragment">smallpox still endemic in Russia proper</li>
 </ul>
+</section></section>
+<section>
+<section id="finnish-civil-war-and-disease" class="title-slide slide level1">
+<h1>Finnish Civil War and Disease</h1>
+
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<figure>
-<img data-src="./img/waves.png" alt="Variola cases by month in Finland" />
-<figcaption aria-hidden="true">Variola cases by month in
-Finland</figcaption>
-</figure>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -437,17 +441,196 @@ inhabitants</figcaption>
 </figure>
 </section></section>
 <section>
+<section id="data" class="title-slide slide level1">
+<h1>Data</h1>
+
+</section>
+<section id="healthcare-districts" class="slide level2">
+<h2>Healthcare districts</h2>
+<ul>
+<li class="fragment">Finland was divided into 53 medical districts
+<em>piirilääkäripiiri</em></li>
+<li class="fragment">The area of districts evolved over time</li>
+<li class="fragment">Each had a district medical officer
+(<em>piirilääkäri</em>) charged with reporting on local conditions
+<ul>
+<li class="fragment">medical statistics do not correspond to other
+statistical units</li>
+</ul></li>
+<li class="fragment">Cities had their own medical boards</li>
+</ul>
+</section>
+<section id="medical-data" class="slide level2">
+<h2>Medical data</h2>
+<ul>
+<li class="fragment">Annual reports of the Central Medical Board
+(<em>Lääkintöhallitus</em>) report diseases by medical districts and
+cities</li>
+<li class="fragment">These do not include the many cases in garrisons
+and prison camps</li>
+</ul>
+</section>
+<section id="spatial-data" class="slide level2">
+<h2>Spatial data</h2>
+<ul>
+<li class="fragment">Finnish municipalities in 1918 digitized, then
+combined into medical districts</li>
+<li class="fragment">Cities are included in the district that surrounds
+them, in reality they were independent units</li>
+</ul>
+</section></section>
+<section>
 <section id="geospatial-analysis" class="title-slide slide level1">
 <h1>Geospatial analysis</h1>
 
 </section>
-<section id="bayesian-spatial-regression" class="slide level2">
-<h2>Bayesian spatial regression</h2>
+<section id="distance-to-russia-and-variola" class="slide level2">
+<h2>Distance to Russia and Variola</h2>
+<ul>
+<li class="fragment"><em>x_i</em> distance to Russian border (km) was
+measured for each medical district <em>i</em></li>
+<li class="fragment"><em>y_i</em> incidence of Variola</li>
+</ul>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<p><span class="math display"><em>y</em><sub><em>i</em></sub> ∼ <em>P</em><em>o</em><em>i</em><em>s</em><em>s</em><em>o</em><em>n</em>(<em>λ</em><sub><em>i</em></sub>)</span>
-<span class="math display"><em>l</em><em>o</em><em>g</em><em>λ</em><sub><em>i</em></sub> = <em>β</em><sub>0</sub> + <em>β</em><sub>1</sub><em>x</em><sub><em>i</em></sub> + <em>θ</em><sub><em>i</em></sub> + <em>ϕ</em><sub><em>i</em></sub></span></p>
+<p><img data-src="./img/distance_to_russia.png" /></p>
+</section>
+<section id="bayesian-spatial-regression" class="slide level2">
+<h2>Bayesian spatial regression</h2>
+</section>
+<section id="model-12" class="slide level2">
+<h2>Model (1/2)</h2>
+<p><span class="math display">\[ y_i \sim Poisson(\lambda_i) \]</span>
+<span class="math display">\[ log \lambda_i = \beta_0 + \beta_1 x_i +
+\theta_i + \phi_i \]</span> <span class="math display">\[ \theta_i \sim
+Normal(\mu=0, \tau=\tau_{independent}) \]</span> <span class="math display">\[ \phi | \phi_{j~i} \sim Normal(\mu=\alpha
+\sum^{n_i}_{j=1} \phi_j, \tau=\tau_{spatial}) \]</span></p>
+</section>
+<section id="model-22" class="slide level2">
+<h2>Model (2/2)</h2>
+<p><span class="math display">\[ \beta_0 \sim Normal(\mu=4, \sigma=0.05)
+\]</span> <span class="math display">\[ \beta_1 \sim Normal(\mu=0,
+\sigma=0.05) \]</span> <span class="math display">\[ \tau_{independent}
+\sim Gamma(\alpha=1, \beta=1) \]</span> <span class="math display">\[
+\tau_{spatial} \sim Gamma(\alpha=1, \beta=1) \]</span></p>
+</section>
+<section id="results" class="slide level2">
+<h2>Results</h2>
+<ul>
+<li class="fragment">95 % credible interval (CI) for <em>β_1</em>
+indicates significant effect of distance to Russia (<em>x_i</em>)
+<ul>
+<li class="fragment">1918 CI: from -0.0064 to -0.00078</li>
+<li class="fragment">1919 CI: from -0.014 to -0.0028</li>
+<li class="fragment">very small numbers are explained by the fact
+<em>x_i</em> is measured in hundreds of km</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="the-two-waves" class="title-slide slide level1">
+<h1>The two waves</h1>
+
+</section>
+<section id="vs-1919" class="slide level2">
+<h2>1918 vs 1919</h2>
+<ul>
+<li class="fragment">Two distinct peaks in reported civilian smallpox
+cases</li>
+<li class="fragment">End of the Civil War, May 1918</li>
+<li class="fragment">Winter and Spring 1919</li>
+</ul>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="./img/waves.png" alt="Variola cases by month in Finland" />
+<figcaption aria-hidden="true">Variola cases by month in
+Finland</figcaption>
+</figure>
+</section>
+<section id="local-patterns" class="slide level2">
+<h2>Local patterns</h2>
+<ol type="1">
+<li class="fragment">two peaks</li>
+<li class="fragment">peak in 1918, no peak in 1919</li>
+<li class="fragment">no peak in 1918, peak in 1919</li>
+<li class="fragment">very few or no cases</li>
+</ol>
+</section>
+<section id="two-peaks" class="slide level2">
+<h2>1. Two peaks</h2>
+<ul>
+<li class="fragment">Largest cities</li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="./img/viipuri.png" alt="cases in Viipuri district" />
+<figcaption aria-hidden="true">cases in Viipuri district</figcaption>
+</figure>
+</section>
+<section id="peak-in-1918-no-peak-in-1919" class="slide level2">
+<h2>2. Peak in 1918, no peak in 1919</h2>
+<ul>
+<li class="fragment"></li>
+</ul>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="./img/hollola.png" alt="cases in Hollola district" />
+<figcaption aria-hidden="true">cases in Hollola district</figcaption>
+</figure>
+</section>
+<section id="no-peak-in-1918-peak-in-1919" class="slide level2">
+<h2>3. No peak in 1918, peak in 1919</h2>
+<ul>
+<li class="fragment">Areas outside of the most intensive fighting in the
+Civil War</li>
+<li class="fragment">Mostly areas influenced by Viipuri and Petrograd
+(before 1917)</li>
+<li class="fragment">Pori district in the west</li>
+</ul>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="./img/mikkeli.png" alt="cases in Mikkeli district" />
+<figcaption aria-hidden="true">cases in Mikkeli district</figcaption>
+</figure>
+</section>
+<section id="very-few-or-no-cases" class="slide level2">
+<h2>4. Very few or no cases</h2>
+<ul>
+<li class="fragment">Northernmost Finland was safe, likely due to the
+very low population density</li>
+<li class="fragment">Western islands protected by Baltic sea</li>
+</ul>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="./img/density.png" alt="Population density of Finland in 1918" />
+<figcaption aria-hidden="true">Population density of Finland in
+1918</figcaption>
+</figure>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1">
+<h1>Summary</h1>
+
+</section>
+<section id="russian-influence" class="slide level2">
+<h2>Russian influence</h2>
+<ul>
+<li class="fragment">distance to Russia explains east-west differences
+within Finland</li>
+<li class="fragment">Finnish civil war explains outbreaks in the
+south</li>
+</ul>
 </section></section>
     </div>
   </div>
@@ -485,6 +668,8 @@ inhabitants</figcaption>
 	 *
 	 * Copyright (C) 2011-2014 Hakim El Hattab, http://hakim.se
 	 */return()=>e}));
+</script>
+  <script>!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t="undefined"!=typeof globalThis?globalThis:t||self).RevealMath=e()}(this,(function(){"use strict";const t=()=>{let t,e={messageStyle:"none",tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],skipTags:["script","noscript","style","textarea","pre"]},skipStartupTypeset:!0};return{id:"mathjax2",init:function(n){t=n;let a=t.getConfig().mathjax2||t.getConfig().math||{},i={...e,...a},s=(i.mathjax||"https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js")+"?config="+(i.config||"TeX-AMS_HTML-full");i.tex2jax={...e.tex2jax,...a.tex2jax},i.mathjax=i.config=null,function(t,e){let n=document.querySelector("head"),a=document.createElement("script");a.type="text/javascript",a.src=t;let i=()=>{"function"==typeof e&&(e.call(),e=null)};a.onload=i,a.onreadystatechange=()=>{"loaded"===this.readyState&&i()},n.appendChild(a)}(s,(function(){MathJax.Hub.Config(i),MathJax.Hub.Queue(["Typeset",MathJax.Hub,t.getRevealElement()]),MathJax.Hub.Queue(t.layout),t.on("slidechanged",(function(t){MathJax.Hub.Queue(["Typeset",MathJax.Hub,t.currentSlide])}))}))}}},e=t;return Plugin=Object.assign(e(),{KaTeX:()=>{let t,e={version:"latest",delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredTags:["script","noscript","style","textarea","pre"]};const n=t=>new Promise(((e,n)=>{const a=document.createElement("script");a.type="text/javascript",a.onload=e,a.onerror=n,a.src=t,document.head.append(a)}));return{id:"katex",init:function(a){t=a;let i=t.getConfig().katex||{},s={...e,...i};const{local:o,version:l,extensions:r,...c}=s;let d=s.local||"https://cdn.jsdelivr.net/npm/katex",u=s.local?"":"@"+s.version,p=d+u+"/dist/katex.min.css",h=d+u+"/dist/contrib/mhchem.min.js",x=d+u+"/dist/contrib/auto-render.min.js",m=[d+u+"/dist/katex.min.js"];s.extensions&&s.extensions.includes("mhchem")&&m.push(h),m.push(x);const f=()=>{renderMathInElement(a.getSlidesElement(),c),t.layout()};(t=>{let e=document.createElement("link");e.rel="stylesheet",e.href=t,document.head.appendChild(e)})(p),async function(t){for(const e of t)await n(e)}(m).then((()=>{t.isReady()?f():t.on("ready",f.bind(this))}))}}},MathJax2:t,MathJax3:()=>{let t,e={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]},startup:{ready:()=>{MathJax.startup.defaultReady(),MathJax.startup.promise.then((()=>{Reveal.layout()}))}}};return{id:"mathjax3",init:function(n){t=n;let a=t.getConfig().mathjax3||{},i={...e,...a};i.tex={...e.tex,...a.tex},i.options={...e.options,...a.options},i.startup={...e.startup,...a.startup};let s=i.mathjax||"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";i.mathjax=null,window.MathJax=i,function(t,e){let n=document.createElement("script");n.type="text/javascript",n.id="MathJax-script",n.src=t,n.async=!0,n.onload=()=>{"function"==typeof e&&(e.call(),e=null)},document.head.appendChild(n)}(s,(function(){Reveal.addEventListener("slidechanged",(function(t){MathJax.typeset()}))}))}}}})}));
 </script>
 
   <script>
@@ -632,8 +817,26 @@ inhabitants</figcaption>
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

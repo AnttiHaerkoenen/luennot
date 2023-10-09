@@ -6,7 +6,7 @@
 variola:
 	pandoc -t revealjs -s ./maantieteen-paivat-2023/variola.md \
 	-o ./maantieteen-paivat-2023/variola.html -i --slide-level 2 -V lang=en -V theme=white \
-    --embed-resources --standalone
+    --embed-resources --standalone --mathjax
 
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
