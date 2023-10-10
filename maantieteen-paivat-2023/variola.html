@@ -429,16 +429,96 @@ periods</li>
 <h1>Finnish Civil War and Disease</h1>
 
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="wwi" class="slide level2">
+<h2>WWI</h2>
+<ul>
+<li class="fragment">Before the revolutions of 1917 Finland WWI affected
+Finland very little</li>
+<li class="fragment">Several diseases spread near frontlines
+<ul>
+<li class="fragment">German army suffered 1 dead from disease for every
+10 KIA</li>
+</ul></li>
+<li class="fragment">Influenza pandemic of 1918–19 killed 500 million
+people world wide</li>
+</ul>
 </section>
-<section id="section-1" class="slide level2">
+<section id="finnish-civil-war" class="slide level2">
+<h2>Finnish Civil War</h2>
+<ul>
+<li class="fragment">Peacetime medical infrastructure breaks down</li>
+<li class="fragment">Reds had much worse medical corps than Whites
+<ul>
+<li class="fragment">did not trust doctors</li>
+</ul></li>
+<li class="fragment">Large movements of people
+<ul>
+<li class="fragment">armies</li>
+<li class="fragment">refugees</li>
+<li class="fragment">economic migrants due to famine conditions</li>
+<li class="fragment">prisoner transfers</li>
+</ul></li>
+<li class="fragment">People crammed in barracks and in prison camps</li>
+</ul>
+</section>
+<section id="smallpox-in-civil-war" class="slide level2">
+<h2>Smallpox in Civil War</h2>
+<ul>
+<li class="fragment">Local smallpox cases in Karelian Isthmus in
+1916</li>
+<li class="fragment">Several outbreaks during and after the civil
+war</li>
+<li class="fragment">Smallpox spread among Red troops and then in prison
+camps
+<ul>
+<li class="fragment">3000 cases and 900 deaths</li>
+</ul></li>
+</ul>
+</section>
+<section id="civilian-cases" class="slide level2">
+<h2>Civilian cases</h2>
+<ul>
+<li class="fragment">Recruits and prisoners returning spread cases</li>
+<li class="fragment">In many areas civilians did not recognise the
+disease as smallpox</li>
+<li class="fragment">Origin sometimes unknown
+<ul>
+<li class="fragment">Doctors suspected Variola had spread from
+Russia</li>
+</ul></li>
+<li class="fragment">One large wave at the end of the Civil War</li>
+<li class="fragment">Second, more dispersed wave</li>
+</ul>
+</section>
+<section id="section" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/map.png" alt="Incidence of Variola for every 100 000 inhabitants" />
 <figcaption aria-hidden="true">Incidence of Variola for every 100 000
 inhabitants</figcaption>
 </figure>
+</section>
+<section id="prevention-of-smallpox" class="slide level2">
+<h2>Prevention of smallpox</h2>
+<ul>
+<li class="fragment">quarantining was the most important way of
+prevention</li>
+<li class="fragment">increased vaccination, targeted vaccination efforts
+<ul>
+<li class="fragment">similar to later WHO eradication campaign!</li>
+<li class="fragment">white soldiers and red prisoners vaccinated</li>
+</ul></li>
+<li class="fragment">desinfections of barracks</li>
+</ul>
+</section>
+<section id="eastern-border" class="slide level2">
+<h2>Eastern Border</h2>
+<ul>
+<li class="fragment">Refugees from Russia often had smallpox
+infections</li>
+<li class="fragment">Mandatory checks at the border, quarantine
+hospital</li>
+</ul>
 </section></section>
 <section>
 <section id="data" class="title-slide slide level1">
@@ -489,31 +569,47 @@ them, in reality they were independent units</li>
 <ul>
 <li class="fragment"><em>x_i</em> distance to Russian border (km) was
 measured for each medical district <em>i</em></li>
-<li class="fragment"><em>y_i</em> incidence of Variola</li>
+<li class="fragment"><em>y_i</em> incidence of Variola in the year</li>
 </ul>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <p><img data-src="./img/distance_to_russia.png" /></p>
 </section>
-<section id="bayesian-spatial-regression" class="slide level2">
-<h2>Bayesian spatial regression</h2>
+<section id="bayesian-spatial-poisson-regression" class="slide level2">
+<h2>Bayesian spatial Poisson regression</h2>
+<ul>
+<li class="fragment">Incidence is modelled with a type of Generalised
+Linear Model (GLM), where the response variable is
+Poisson-distributed</li>
+<li class="fragment">Bayesian regression:
+<ul>
+<li class="fragment">Distribution of model parameters are estimated
+based on data</li>
+<li class="fragment">Data is a given, model parameters vary</li>
+<li class="fragment">Prior distributions incorporate prior
+knowledge</li>
+</ul></li>
+<li class="fragment">Spatial regression: spatially autocorrelated
+component</li>
+</ul>
 </section>
 <section id="model-12" class="slide level2">
 <h2>Model (1/2)</h2>
 <p><span class="math display">\[ y_i \sim Poisson(\lambda_i) \]</span>
 <span class="math display">\[ log \lambda_i = \beta_0 + \beta_1 x_i +
-\theta_i + \phi_i \]</span> <span class="math display">\[ \theta_i \sim
-Normal(\mu=0, \tau=\tau_{independent}) \]</span> <span class="math display">\[ \phi | \phi_{j~i} \sim Normal(\mu=\alpha
-\sum^{n_i}_{j=1} \phi_j, \tau=\tau_{spatial}) \]</span></p>
+\theta_i + \phi_i \]</span> <span class="math display">\[ \beta_0 \sim
+Normal(\mu=4, \sigma=0.05) \]</span> <span class="math display">\[
+\beta_1 \sim Normal(\mu=0, \sigma=0.05) \]</span></p>
 </section>
 <section id="model-22" class="slide level2">
 <h2>Model (2/2)</h2>
-<p><span class="math display">\[ \beta_0 \sim Normal(\mu=4, \sigma=0.05)
-\]</span> <span class="math display">\[ \beta_1 \sim Normal(\mu=0,
-\sigma=0.05) \]</span> <span class="math display">\[ \tau_{independent}
-\sim Gamma(\alpha=1, \beta=1) \]</span> <span class="math display">\[
-\tau_{spatial} \sim Gamma(\alpha=1, \beta=1) \]</span></p>
+<p><span class="math display">\[ \theta_i \sim Normal(\mu=0,
+\tau=\tau_{independent}) \]</span> <span class="math display">\[ \phi |
+\phi_{j~i} \sim Normal(\mu=\alpha \sum^{n_i}_{j=1} \phi_j,
+\tau=\tau_{spatial}) \]</span> <span class="math display">\[
+\tau_{independent} \sim Gamma(\alpha=1, \beta=1) \]</span> <span class="math display">\[ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1)
+\]</span></p>
 </section>
 <section id="results" class="slide level2">
 <h2>Results</h2>
@@ -542,7 +638,7 @@ cases</li>
 <li class="fragment">Winter and Spring 1919</li>
 </ul>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/waves.png" alt="Variola cases by month in Finland" />
@@ -562,10 +658,17 @@ Finland</figcaption>
 <section id="two-peaks" class="slide level2">
 <h2>1. Two peaks</h2>
 <ul>
-<li class="fragment">Largest cities</li>
+<li class="fragment">Karelian Isthmus and Ladoga coast</li>
+<li class="fragment">Areas most dependent on Petrograd before 1917</li>
+<li class="fragment">Tampere region
+<ul>
+<li class="fragment">The city itself had high vaccination rate</li>
+</ul></li>
+<li class="fragment">Kuopio: first wave from prisoners, second wave from
+North Karelia</li>
 </ul>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/viipuri.png" alt="cases in Viipuri district" />
@@ -575,10 +678,11 @@ Finland</figcaption>
 <section id="peak-in-1918-no-peak-in-1919" class="slide level2">
 <h2>2. Peak in 1918, no peak in 1919</h2>
 <ul>
-<li class="fragment"></li>
+<li class="fragment">Historic Tavastia and Birkaland, except
+Tampere</li>
 </ul>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/hollola.png" alt="cases in Hollola district" />
@@ -595,7 +699,7 @@ Civil War</li>
 <li class="fragment">Pori district in the west</li>
 </ul>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/mikkeli.png" alt="cases in Mikkeli district" />
@@ -608,9 +712,11 @@ Civil War</li>
 <li class="fragment">Northernmost Finland was safe, likely due to the
 very low population density</li>
 <li class="fragment">Western islands protected by Baltic sea</li>
+<li class="fragment">Smallpox needed higher population density to
+survive than the Spanish flu</li>
 </ul>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <figure>
 <img data-src="./img/density.png" alt="Population density of Finland in 1918" />
@@ -630,6 +736,19 @@ very low population density</li>
 within Finland</li>
 <li class="fragment">Finnish civil war explains outbreaks in the
 south</li>
+<li class="fragment">Quarantine hospital at border prevented many
+outbreaks</li>
+</ul>
+</section>
+<section id="smallpox" class="slide level2">
+<h2>Smallpox</h2>
+<ul>
+<li class="fragment">The problems faced by medical professionals were
+almost exactly the same as the ones during COVID-19</li>
+<li class="fragment">Data quality and lack of digitisation are huge
+problems</li>
+<li class="fragment">Variola virus is the only pathogen ever to be
+extinguished by humans</li>
 </ul>
 </section></section>
     </div>

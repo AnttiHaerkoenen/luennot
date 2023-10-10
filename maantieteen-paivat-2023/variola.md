@@ -28,11 +28,57 @@
 
 # Finnish Civil War and Disease
 
-## 
+## WWI
+
+- Before the revolutions of 1917 Finland WWI affected Finland very little
+- Several diseases spread near frontlines
+  * German army suffered 1 dead from disease for every 10 KIA
+- Influenza pandemic of 1918–19 killed 500 million people world wide
+
+## Finnish Civil War
+
+- Peacetime medical infrastructure breaks down
+- Reds had much worse medical corps than Whites
+  * did not trust doctors
+- Large movements of people
+  * armies
+  * refugees
+  * economic migrants due to famine conditions
+  * prisoner transfers
+- People crammed in barracks and in prison camps
+
+## Smallpox in Civil War
+
+- Local smallpox cases in Karelian Isthmus in 1916
+- Several outbreaks during and after the civil war
+- Smallpox spread among Red troops and then in prison camps
+  * 3000 cases and 900 deaths
+
+## Civilian cases
+
+- Recruits and prisoners returning spread cases
+- In many areas civilians did not recognise the disease as smallpox
+- Origin sometimes unknown
+  * Doctors suspected Variola had spread from Russia
+- One large wave at the end of the Civil War
+- Second, more dispersed wave
 
 ##
 
 ![Incidence of Variola for every 100 000 inhabitants](./img/map.png)
+
+## Prevention of smallpox
+
+- quarantining was the most important way of prevention
+- increased vaccination, targeted vaccination efforts
+  * similar to later WHO eradication campaign!
+  * white soldiers and red prisoners vaccinated
+- desinfections of barracks
+
+## Eastern Border
+
+- Refugees from Russia often had smallpox infections
+- Mandatory checks at the border, quarantine hospital
 
 # Data
 
@@ -59,25 +105,33 @@
 ## Distance to Russia and Variola
 
 - *x_i* distance to Russian border (km) was measured for each medical district *i*
-- *y_i* incidence of Variola
+- *y_i* incidence of Variola in the year 
 
 ##
 
 ![](./img/distance_to_russia.png)
 
-## Bayesian spatial regression
+## Bayesian spatial Poisson regression
+
+- Incidence is modelled with a type of Generalised Linear Model (GLM),
+where the response variable is Poisson-distributed
+- Bayesian regression:
+  * Distribution of model parameters are estimated based on data
+  * Data is a given, model parameters vary
+  * Prior distributions incorporate prior knowledge
+- Spatial regression: spatially autocorrelated component
 
 ## Model (1/2)
 
 $$ y_i \sim Poisson(\lambda_i) $$
 $$ log \lambda_i = \beta_0 + \beta_1 x_i + \theta_i + \phi_i $$
-$$ \theta_i \sim Normal(\mu=0, \tau=\tau_{independent}) $$
-$$ \phi | \phi_{j~i} \sim Normal(\mu=\alpha \sum^{n_i}_{j=1} \phi_j, \tau=\tau_{spatial}) $$
+$$ \beta_0 \sim Normal(\mu=4, \sigma=0.05) $$
+$$ \beta_1 \sim Normal(\mu=0, \sigma=0.05) $$
 
 ## Model (2/2)
 
-$$ \beta_0 \sim Normal(\mu=4, \sigma=0.05) $$
-$$ \beta_1 \sim Normal(\mu=0, \sigma=0.05) $$
+$$ \theta_i \sim Normal(\mu=0, \tau=\tau_{independent}) $$
+$$ \phi | \phi_{j~i} \sim Normal(\mu=\alpha \sum^{n_i}_{j=1} \phi_j, \tau=\tau_{spatial}) $$
 $$ \tau_{independent} \sim Gamma(\alpha=1, \beta=1) $$
 $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
@@ -111,7 +165,9 @@ $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
 - Karelian Isthmus and Ladoga coast
 - Areas most dependent on Petrograd before 1917
-- Tampere
+- Tampere region
+  * The city itself had high vaccination rate
+- Kuopio: first wave from prisoners, second wave from North Karelia
 
 ##
 
@@ -119,7 +175,7 @@ $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
 ## 2. Peak in 1918, no peak in 1919
 
-- Old Tavastian areas, except Tampere
+- Historic Tavastia and Birkaland, except Tampere
 
 ##
 
@@ -151,3 +207,10 @@ $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
 - distance to Russia explains east-west differences within Finland
 - Finnish civil war explains outbreaks in the south
+- Quarantine hospital at border prevented many outbreaks
+
+## Smallpox
+
+- The problems faced by medical professionals were almost exactly the same as the ones during COVID-19
+- Data quality and lack of digitisation are huge problems
+- Variola virus is the only pathogen ever to be extinguished by humans
