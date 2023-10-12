@@ -6,25 +6,25 @@
 
 ## Variola
 
-- orthopox virus *Variola major* and *V. minor*
-- smallpox, la petite vérole, isorokko, smittkoppor
-- one of the deadliest diseases in history
+- Orthopox virus
+- Smallpox, la petite vérole, isorokko, smittkoppor
+- One of the deadliest diseases in history
   * 30 % mortality
   * 300 million dead in 20th century
-  * killed 20–30 % of Finnish children in the worst periods
-- wiped out by vaccination campaign in 1980
+  * Killed 20–30 % of Finnish children in the worst periods
+- Wiped out by vaccination campaign in 1980
 
 ## Vaccination
 
 - Jennerian vaccination in the late 1700s
-- mandatory vaccination for children in Finland in 1883
-- smallpox no longer endemic in Finland after 1890s
+- Mandatory vaccination for children in Finland in 1883
+- Smallpox no longer endemic in Finland after 1890s
 
 ## However...
 
-- widespred vaccine hesitancy
+- Widespred vaccine hesitancy
 - Kuhnean antivaccine movement popular in the 1910s
-- smallpox still endemic in Russia proper
+- Smallpox still endemic in Russia proper
 
 # Finnish Civil War and Disease
 
@@ -39,12 +39,12 @@
 
 - Peacetime medical infrastructure breaks down
 - Reds had much worse medical corps than Whites
-  * did not trust doctors
+  * Did not trust doctors
 - Large movements of people
-  * armies
-  * refugees
-  * economic migrants due to famine conditions
-  * prisoner transfers
+  * Armies
+  * Refugees
+  * Economic migrants due to famine conditions
+  * Prisoner transfers
 - People crammed in barracks and in prison camps
 
 ## Smallpox in Civil War
@@ -61,7 +61,7 @@
 - Origin sometimes unknown
   * Doctors suspected Variola had spread from Russia
 - One large wave at the end of the Civil War
-- Second, more dispersed wave
+- Second, more dispersed wave in early 1919
 
 ##
 
@@ -69,11 +69,11 @@
 
 ## Prevention of smallpox
 
-- quarantining was the most important way of prevention
-- increased vaccination, targeted vaccination efforts
-  * similar to later WHO eradication campaign!
-  * white soldiers and red prisoners vaccinated
-- desinfections of barracks
+- Quarantining was the most important way of prevention
+- Increased vaccination, targeted vaccination efforts
+  * Similar to later WHO eradication campaign!
+  * White troops and red prisoners vaccinated
+- Desinfections of barracks
 
 ## Eastern Border
 
@@ -87,13 +87,14 @@
 - Finland was divided into 53 medical districts *piirilääkäripiiri*
 - The area of districts evolved over time
 - Each had a district medical officer (*piirilääkäri*) charged with reporting on local conditions
-  * medical statistics do not correspond to other statistical units
+  * Medical statistics do not correspond to other statistical units
 - Cities had their own medical boards
 
 ## Medical data
 
 - Annual reports of the Central Medical Board (*Lääkintöhallitus*) report diseases by medical districts and cities
 - These do not include the many cases in garrisons and prison camps
+- No good data on vaccine coverage
 
 ## Spatial data
 
@@ -119,12 +120,11 @@ where the response variable is Poisson-distributed
   * Distribution of model parameters are estimated based on data
   * Data is a given, model parameters vary
   * Prior distributions incorporate prior knowledge
-- Spatial regression: spatially autocorrelated component
 
 ## Model (1/2)
 
 $$ y_i \sim Poisson(\lambda_i) $$
-$$ log \lambda_i = \beta_0 + \beta_1 x_i + \theta_i + \phi_i $$
+$$ \log{\lambda_i} = \beta_0 + \beta_1 x_i + \theta_i + \phi_i $$
 $$ \beta_0 \sim Normal(\mu=4, \sigma=0.05) $$
 $$ \beta_1 \sim Normal(\mu=0, \sigma=0.05) $$
 
@@ -156,10 +156,10 @@ $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
 ## Local patterns
 
-1. two peaks
-2. peak in 1918, no peak in 1919
-3. no peak in 1918, peak in 1919
-4. very few or no cases
+1. Two peaks
+2. Peak in 1918, no peak in 1919
+3. No peak in 1918, peak in 1919
+4. Very few or no cases
 
 ## 1. Two peaks
 
@@ -205,7 +205,7 @@ $$ \tau_{spatial} \sim Gamma(\alpha=1, \beta=1) $$
 
 ## Russian influence
 
-- distance to Russia explains east-west differences within Finland
+- Distance to Russia explains east-west differences within Finland
 - Finnish civil war explains outbreaks in the south
 - Quarantine hospital at border prevented many outbreaks
 
