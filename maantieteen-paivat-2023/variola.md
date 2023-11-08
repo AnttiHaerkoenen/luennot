@@ -30,7 +30,7 @@
 
 ## WWI
 
-- Before the revolutions of 1917 Finland WWI affected Finland very little
+- Before the revolutions of 1917 WWI affected Finland very little
 - Several diseases spread near frontlines
   * German army suffered 1 dead from disease for every 10 KIA
 - Influenza pandemic of 1918–19 killed 500 million people world wide
@@ -105,8 +105,8 @@
 
 ## Distance to Russia and Variola
 
-- *x_i* distance to Russian border (km) was measured for each medical district *i*
-- *y_i* incidence of Variola in the year 
+- *x_i* distance to Russian border (100 km) measured for each medical district *i*
+- *y_i* incidence of Variola 
 
 ##
 
