@@ -1,6 +1,6 @@
-% Viipurin kivettyminen 1640-1860
+% Viipurin kivettyminen 1640—1860
 % Antti Härkönen
-% 2022-02-09
+% 2024-02-14
 
 # Johdanto
 
@@ -23,13 +23,17 @@
 
 ## Regulaatio
 
-- Per Brahe ja maanmittarit
 - "luonnollisista" kaduista kankeaan ruutukaavaan
+- renessanssin ihanne: Vitruviuksen kaupunki
+- säännölliset tontit
+- Per Brahe ja maanmittarit
 
 ## Paloturvallisuus
 
 - säännölliset tulipalot tuhosivat puutalokortteleita
 - ruotsalaiset ja venäläiset sotilasviranomaiset vaativat kivirakennuksia
+- 1738 palon jälkeen Vallin köyhempi kansa joutui muuttamaan esikaupunkeihin
+- palomääräyksiä kiristettiin
 
 ## Esikaupungit
 
@@ -41,6 +45,12 @@
 
 ## Segregaatiotutkimus
 
+- paljon teorioita eriytymisen syistä
+- sosiaalinen etäisyys ryhmien välillä
+- rakennetun ympäristön vaikutus segregaation tasoon
+
+## Pitkän ajan vaikutus
+
 - hypoteesi: rakennusmateriaalin rajoitus vahvistaa segregaatiota varallisuuden mukaan
 - puurakennuksia palaa ja puratetaan jokaisen suurpalon jälkeen, kivirakennukset korjataan
 - tonttirajat kestävät, kun ne perustuvat kivirakennuksiin
@@ -48,7 +58,6 @@
 # Metodit
 
 ## Diakroninen analyysi
-
 - rakennuskannan muutos ja varallisuuden alueellinen keskittyminen
 
 ## Talojen laskenta
@@ -94,5 +103,6 @@
 
 ## Pitkän ajan segregaatio
 
+- segregaatio voi muuttua hyvin hitaasti
 - voiko sitä mitata
 - paljon ongelmia
