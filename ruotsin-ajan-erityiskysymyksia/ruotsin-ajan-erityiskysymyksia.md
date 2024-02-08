@@ -58,7 +58,9 @@
 # Metodit
 
 ## Diakroninen analyysi
+
 - rakennuskannan muutos ja varallisuuden alueellinen keskittyminen
+- kivirakennukset aluksi Vallissa, 1860 jälkeen Salakkalahti, Repola, Anina
 
 ## Talojen laskenta
 
@@ -98,6 +100,7 @@
 ## Uuden ajan alun kaupungit
 
 - [Sortavala-artikkeli](https://doi.org/10.1177/00961442211037313)
+- pian ilmestyvä Viipuri-artikkeli
 - Gideon Sjöbergin esiteollinen kaupunki (*The Pre-Industrial City: Past and Present*, 97-101)
 - kaupunkien keskusta ja eliitin statuksen korostaminen
 
