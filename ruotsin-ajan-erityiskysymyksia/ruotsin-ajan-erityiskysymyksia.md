@@ -69,7 +69,7 @@
 
 ## Karttojen digitointi
 
-- [Viipurin digitaalinen atlas](https://arcg.is/0qbqzC0)
+- [Viipurin digitaalinen atlas](https://experience.arcgis.com/experience/4a24374ffc074c4989495a68a53a95f7)
 - rakennukset vektorimuodossa
 
 ## MAUP
