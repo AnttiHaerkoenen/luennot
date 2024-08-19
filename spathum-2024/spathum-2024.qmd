@@ -4,6 +4,7 @@ subtitle: The case of Vyborg
 author: 'Antti Härkönen'
 institute: UEF
 date: 2024-09-26
+echo: false
 execute:
     enabled: true
 format: 
