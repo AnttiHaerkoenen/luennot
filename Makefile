@@ -2,6 +2,11 @@
 # Commands                                                                        #
 ###################################################################################
 
+## Spathum 2024
+spathum:
+	quarto render ./spathum-2024/spathum-2024.qmd
+	quarto render ./spathum-2024/spathum-2024.qmd -t pdf
+
 ## Variola - Finland 1918-19
 variola:
 	pandoc -t revealjs -s ./maantieteen-paivat-2023/variola.md \

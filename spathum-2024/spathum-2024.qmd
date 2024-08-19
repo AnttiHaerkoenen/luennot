@@ -1,0 +1,123 @@
+---
+title: 'Causes of ethnic segregation in a nineteenth century city'
+subtitle: The case of Vyborg
+author: 'Antti Härkönen'
+institute: UEF
+date: 2024-09-26
+execute:
+    enabled: true
+format: 
+    revealjs:
+        theme: black
+        incremental: true
+---
+
+# Introduction
+
+## Vyborg, a Karelian city
+
+:::{.content-visible unless-format="pdf"}
+```{python}
+from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles
+m = Map(
+  basemap=basemap_to_tiles(
+    basemaps.OpenTopoMap
+  ),
+  center=(60.715591, 28.729147),
+  zoom=5
+)
+m.add_layer(Marker(location=(60.715591, 28.729147)))
+m
+```
+:::
+
+:::{.content-visible when-format="pdf"}
+![](vyborg-loc.png){fig-alt="Location of Vyborg on map"}
+:::
+
+## Vyborg, a Karelian city
+
+- castle founded in the late 13th century
+- town privileges 1403
+
+## TESTI
+
+```{python}
+#| label: testi
+#| fig-cap: Kuvio 1.
+#| fig-alt: kuvio
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.arange(0.001, 2, 0.001)
+y = np.log(x)
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+```
+
+## Estimating the size of Russian population
+
+- over 90% of Orthodox in Vyborg Russian
+
+## Poll tax records {.scrollable}
+
+| column | description |
+|--------|----|
+| plot_number | Plot number |
+| taxpayer_men | Men paying poll tax |
+| taxpayer_women | Women paying poll tax |
+| no_tax_men | Men exempt from poll tax |
+| no_tax_women | Women exempt from poll tax |
+| in_russia_men | Men legally residing in Russia proper |
+| in_russia_women | Women legally residing in Russia proper |
+| total_men | Total men |
+| total_women | Total women |
+| independent | Civil servants, entrepreneurs, and financially independent |
+| white_collar | White collar workers |
+| worker_industry | Workers in industry |
+| worker_other | Other workers |
+| servants | Servants |
+| other | Other employment status |
+| non_resident | Resident elsewhere |
+| orthodox | Orthodox |
+| other_christian | Non-Lutheran and non-Orthodox Christian |
+| other_religion | Other religions |
+| draftable | 21-year-old males eligible for draft |
+
+: poll tax record columns in 1894 {.striped .hover}
+
+## Estimating the size of Lutheran population
+
+$$ P_{Lutheran}=(P_{total\_men}+P_{total\_women}) −(P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) $$
+
+## Work flow {.scrollable}
+
+```{mermaid}
+flowchart TB
+    A["Data collection and
+     digitizing"] --> B["Georeferencing and 
+     combining data"]
+    B --> C["KDE"]
+    C --> D["Combining and 
+    selecting data"]
+    D --> E["Data normalisation"]
+    E --> F["Training regression model"]
+    F --> G["Visualisation"]
+    G --> H{"Assessing model"}
+    H --> I["Analysis of 
+    results"]
+    H --> F
+```
+
+## Population growth
+
+| District | 1822 | 1880 |
+|----------|------|------|
+| Centre   | 1192 | 2506 |
+| St. Anna | 244 | 117 |
+| Vyborg suburb | 642 | 756 |
+| St Petersburg suburb | 1512 | 2685 |
+
+: Population growth in key areas 1822–1880 {.striped .hover}
