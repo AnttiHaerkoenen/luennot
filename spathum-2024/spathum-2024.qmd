@@ -1,16 +1,19 @@
 ---
 title: 'Causes of ethnic segregation in a nineteenth century city'
-subtitle: The case of Vyborg
+subtitle: 'The case of Vyborg'
 author: 'Antti Härkönen'
 institute: UEF
 date: 2024-09-26
 echo: false
+warning: false
+bibliography: references.bib
 execute:
     enabled: true
 format: 
     revealjs:
-        theme: black
+        theme: simple
         incremental: true
+        navigation-mode: vertical
 ---
 
 # Introduction
@@ -41,22 +44,7 @@ m
 - castle founded in the late 13th century
 - town privileges 1403
 
-## TESTI
-
-```{python}
-#| label: testi
-#| fig-cap: Kuvio 1.
-#| fig-alt: kuvio
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.arange(0.001, 2, 0.001)
-y = np.log(x)
-fig, ax = plt.subplots()
-ax.plot(x, y)
-plt.show()
-```
+# Sources
 
 ## Estimating the size of Russian population
 
@@ -65,7 +53,7 @@ plt.show()
 ## Poll tax records {.scrollable}
 
 | column | description |
-|--------|----|
+|---:|:---|
 | plot_number | Plot number |
 | taxpayer_men | Men paying poll tax |
 | taxpayer_women | Women paying poll tax |
@@ -91,26 +79,41 @@ plt.show()
 
 ## Estimating the size of Lutheran population
 
-$$ P_{Lutheran}=(P_{total\_men}+P_{total\_women}) −(P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) $$
+:::{.content-visible unless-format="pdf"}
+$$
+\begin{equation} P_{Lutheran} = \begin{split} (P_{total\_men}+P_{total\_women}) \\ − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) \end{split} \end{equation}
+$$
+:::
 
+:::{.content-visible when-format="pdf"}
+$$
+P_{Lutheran} = (P_{total\_men}+P_{total\_women}) − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion})
+$$
+:::
 ## Work flow {.scrollable}
 
 ```{mermaid}
 flowchart TB
-    A["Data collection and
-     digitizing"] --> B["Georeferencing and 
-     combining data"]
+    A["Data collection and digitizing"] --> B["Georeferencing and geolocating"]
     B --> C["KDE"]
-    C --> D["Combining and 
-    selecting data"]
+    C --> D["Data linking and selection"]
     D --> E["Data normalisation"]
     E --> F["Training regression model"]
     F --> G["Visualisation"]
     G --> H{"Assessing model"}
-    H --> I["Analysis of 
-    results"]
+    H --> I["Analysis of results"]
     H --> F
 ```
+
+## Sources {.scrollable}
+
+Signum | Original year | Digitization process
+---|---|---
+Town plan of Vyborg. Vyborg military engineer detachment’s archive of plans for fortifications and buildings, 7, 11. | 1878 | Georeferenced using ground control points, vectorized manually into shapefile
+Vyborg province poll tax registers | 1880 | Digitized manually into CSV
+Financial office of the city of Vyborg, Municipal tax levies and payment registers | 1880 | Digitized manually into CSV
+
+: Sources from the National archives of Finland {.striped .hover}
 
 ## Population growth
 
@@ -121,4 +124,45 @@ flowchart TB
 | Vyborg suburb | 642 | 756 |
 | St Petersburg suburb | 1512 | 2685 |
 
-: Population growth in key areas 1822–1880 {.striped .hover}
+: Population growth in key areas {.striped .hover}
+
+# Population surface model
+
+## Population density modelling
+
+Based on @martin2000.
+$$ P_i=\sum^N_{j=1} P_j w_{ij} $$
+
+$$ w_{ij} = \left( \frac{k^2 - d^2_{ij}}{k^2 + d^2_{ij}} \right)^\alpha $$
+
+when 
+
+$$ d_{ij} < k $$
+
+## Biweight kernel
+
+```{python}
+#| label: kernel profile
+#| fig-cap: Kernel function
+#| fig-alt: Side profile of a biweight kernel function
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+α = [0.5, 1, 1.5, 2, 5, 10]
+k=1
+
+x = np.arange(0.001, 1, 0.001)
+y = np.power((k**2 - x**2) / (k**2 + x**2), α)
+y[x>=k] = 0
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
+print(len(x))
+```
+
+## References
+
+::: {#refs}
+:::

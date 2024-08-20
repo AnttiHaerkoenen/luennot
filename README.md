@@ -21,3 +21,9 @@
 ## Joensuu 2023
 
 [Spatio-temporal dynamics of the last Finnish Variola epidemic, 1918–19](./maantieteen-paivat-2023/variola.html)
+
+# Spatial Humanities
+
+## Bamberg 2024
+
+[Causes of ethnic segregation in a nineteenth century city](./spathum-2024/spathum-2024.html) ([PDF](./spathum-2024/spathum-2024.pdf))
