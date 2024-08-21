@@ -90,6 +90,7 @@ $$
 P_{Lutheran} = (P_{total\_men}+P_{total\_women}) − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion})
 $$
 :::
+
 ## Work flow {.scrollable}
 
 ```{mermaid}
@@ -128,7 +129,7 @@ Financial office of the city of Vyborg, Municipal tax levies and payment registe
 
 # Population surface model
 
-## Population density modelling
+## Population surface model
 
 Based on @martin2000.
 $$ P_i=\sum^N_{j=1} P_j w_{ij} $$
@@ -141,28 +142,78 @@ $$ d_{ij} < k $$
 
 ## Biweight kernel
 
+:::{.content-visible unless-format="pdf"}
 ```{python}
 #| label: kernel profile
 #| fig-cap: Kernel function
 #| fig-alt: Side profile of a biweight kernel function
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
-α = [0.5, 1, 1.5, 2, 5, 10]
+α = np.repeat([0.5, 1, 1.5, 2, 5], repeats=99)
 k=1
 
-x = np.arange(0.001, 1, 0.001)
-y = np.power((k**2 - x**2) / (k**2 + x**2), α)
-y[x>=k] = 0
+d = np.tile(np.arange(0.01, 1, 0.01), reps=5)
+y = np.power((k**2 - d**2) / (k**2 + d**2), α)
+y[d>=k] = 0
 
-fig, ax = plt.subplots()
-ax.plot(x, y)
-plt.show()
-print(len(x))
+df = pd.DataFrame({'alpha': α, 'd': d, 'y': y})
+
+fig = px.line(
+  df,
+  x='d',
+  y='y',
+  animation_frame='alpha', 
+)
+fig.show()
 ```
-
-## References
-
-::: {#refs}
 :::
+
+:::{.content-visible when-format="pdf"}
+```{python}
+#| label: kernel profile pdf
+#| fig-cap: Kernel function
+#| fig-alt: Side profile of a biweight kernel function
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+α = np.repeat([0.5, 1, 2, 5], repeats=99)
+k=1
+
+d = np.tile(np.arange(0.01, 1, 0.01), reps=4)
+y = np.power((k**2 - d**2) / (k**2 + d**2), α)
+y[d>=k] = 0
+
+df = pd.DataFrame({'alpha': α, 'd': d, 'y': y})
+
+fig, axs = plt.subplots(4, sharex=True, figsize=(4,8))
+for i, a in enumerate(df['alpha'].unique()):
+  df.loc[df['alpha']==a].plot.line(
+    x='d',
+    y='y',
+    legend=False,
+    title=f'alpha={a}',
+    ax=axs[i],
+  )
+plt.show()
+```
+:::
+
+# Segregation
+
+## 1700s
+
+##
+
+![](vyborg_1768.jpeg){fig-alt="Vyborg plot owners in 1768"}
+
+##
+
+![](vyborg_1839.jpeg){fig-alt="Vyborg in 1839"}
+
+# References
