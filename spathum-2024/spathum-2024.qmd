@@ -14,6 +14,7 @@ format:
         theme: simple
         incremental: true
         navigation-mode: vertical
+        transition: convex
 ---
 
 # Introduction
@@ -50,7 +51,7 @@ m
 
 - over 90% of Orthodox in Vyborg Russian
 
-## Poll tax records {.scrollable}
+## Poll tax records {.scrollable .smaller}
 
 | column | description |
 |---:|:---|
@@ -91,22 +92,11 @@ P_{Lutheran} = (P_{total\_men}+P_{total\_women}) − (P_{Orthodox}+P_{other\_Chr
 $$
 :::
 
-## Work flow {.scrollable}
+## Work flow
 
-```{mermaid}
-flowchart TB
-    A["Data collection and digitizing"] --> B["Georeferencing and geolocating"]
-    B --> C["KDE"]
-    C --> D["Data linking and selection"]
-    D --> E["Data normalisation"]
-    E --> F["Training regression model"]
-    F --> G["Visualisation"]
-    G --> H{"Assessing model"}
-    H --> I["Analysis of results"]
-    H --> F
-```
+![](workflow.jpeg){fig-alt="Flow chart of workflow"}
 
-## Sources {.scrollable}
+## Sources {.smaller}
 
 Signum | Original year | Digitization process
 ---|---|---
@@ -115,6 +105,10 @@ Vyborg province poll tax registers | 1880 | Digitized manually into CSV
 Financial office of the city of Vyborg, Municipal tax levies and payment registers | 1880 | Digitized manually into CSV
 
 : Sources from the National archives of Finland {.striped .hover}
+
+##
+
+![](vyborg_1839.jpeg){fig-alt="Map of Vyborg in 1839"}
 
 ## Population growth
 
@@ -129,16 +123,28 @@ Financial office of the city of Vyborg, Municipal tax levies and payment registe
 
 # Population surface model
 
-## Population surface model
+## Population surface model {.smaller}
 
+:::{.fragment .fade-in-then-out}
 Based on @martin2000.
-$$ P_i=\sum^N_{j=1} P_j w_{ij} $$
+:::
 
-$$ w_{ij} = \left( \frac{k^2 - d^2_{ij}}{k^2 + d^2_{ij}} \right)^\alpha $$
+:::{.fragment}
+$$
+P_i=\sum^N_{j=1} P_j w_{ij}
+$$
+:::
 
-when 
+:::{.fragment .fade-in .content-visible unless-format="pdf"}
+$$
+w_{ij} = 
+\begin{cases} 
+  \left( \frac{k^2 - d^2_{ij}}{k^2 + d^2_{ij}} \right)^\alpha & \text{if} \hspace{1cm} d_{ij < k} \\
+  0 & \text{else}
+\end{cases} 
+$$
+:::
 
-$$ d_{ij} < k $$
 
 ## Biweight kernel
 
@@ -210,10 +216,120 @@ plt.show()
 
 ##
 
-![](vyborg_1768.jpeg){fig-alt="Vyborg plot owners in 1768"}
+![](vyborg_1768.jpeg){fig-alt="Map Vyborg plot owners in 1768"}
 
 ##
 
-![](vyborg_1839.jpeg){fig-alt="Vyborg in 1839"}
+![](orthodox_density.jpeg){fig-alt="Map of density of Orthodox population"}
+
+##
+
+![](income.jpeg){fig-alt="Map of income distribution in Vyborg"}
+
+# Explaining segregation
+
+## Regression model (1) {.smaller}
+
+::: {.fragment}
+$$
+O_i \sim MvNormal(\mu, \textbf{K})
+$$
+:::
+
+::: {.fragment}
+$$
+\mu_i = \beta_{0,k[i]} + \beta_{1,k[i]} \textit{ln(W)} + \beta_{2,k[i]} C_i
+$$
+:::
+
+::: {.fragment .fade-in-then-out}
+$$
+k \in 1,2,3,4 \hspace{1cm} i,j \in 1,2,3, \dots 539
+$$
+:::
+
+::: {.fragment}
+$$
+\beta_k \sim MvNormal \left( 
+  \theta, 
+  \begin{bmatrix} 
+    0.1 & 0 & 0 \\
+    0 & 0.1 & 0 \\
+    0 & 0 & 0.1
+  \end{bmatrix}\right)
+$$
+:::
+
+::: {.fragment}
+$$ 
+\theta \sim MvNormal \left( 
+  \begin{bmatrix} 
+    0 \\
+    0 \\
+    0
+  \end{bmatrix}, 
+  \begin{bmatrix} 
+    0.1 & 0 & 0 \\
+    0 & 0.1 & 0 \\
+    0 & 0 & 0.1
+  \end{bmatrix}\right)
+$$
+:::
+
+## Regression model (2)
+
+::: {.fragment}
+$$
+\textbf{K}_{ij} = \eta^2 exp(-75 \rho^2 d^2_{ij}) + 0.01 \times I_{540}
+$$
+:::
+
+::: {.fragment}
+$$
+\eta^2 \sim Normal(1, 0.2)
+$$
+$$
+\rho^2 \sim Normal(1, 0.2)
+$$
+:::
+
+## Multilevel Bayesian regression {.scrollable .smaller}
+
+Variable | Shape | Description
+----|-----|-----
+O |	540	| Normalized proportion of Russian Orthodox of the local population
+W | 540	| Smoothed total income in a location in öre
+C | 540	| Distance to nearest Orthodox church in 1799 in kilometres
+d | 540 x 540 |	Distance matrix holding pairwise distances between plots
+θ | 3	| Hyperparameter for β
+β | 4 x 3 |	Linear regression coefficients for each district
+η2 | 1 | Parameter for the covariance function
+ρ2 | 1 | Parameter for the covariance function
+
+##
+
+![](plate_diagram_1.jpeg){fig-alt="Plate diagram of Bayesian regression model"}
+
+## Results {.scrollable .smaller}
+
+Variable | Mean | SD | HDI, 95% |
+:---|:---|:---|---:|:---
+θ0 | −0.027	| 0.096 | −0.227 | 0.15
+θ1 | 0.027 |	0.085	| −0.142 | 0.193
+θ2 | −0.135 | 0.096 | −0.309 | 0.067
+β0,0 | −0.609 | 0.299 | −1.162 | −0.013
+β0,1 | 0.104 | 0.056 | −0.009 | 0.209
+β0,2 | −1.076 | 0.314 | −1.702 | −0.487
+β1,0 | 0.097 | 0.3 | −0.46 | 0.743
+β1,1 | 0.142 | 0.14 | −0.117 | 0.433
+β1,2 | −0.037 | 0.316 | −0.625 | 0.626
+β2,0 | 0.118 | 0.299 | −0.509 | 0.677
+β2,1 | 0.119 | 0.074 | −0.024 | 0.261
+β2,2 | −0.287 | 0.312 | −0.905 | 0.306
+β3,0 | 0.016 | 0.272 | −0.54 | 0.515
+β3,1 | 0 | 0.069 | −0.141 | 0.135
+β3,2 | −0.496 | 0.248 | −0.991 | −0.024
+scaled η² | 0.93 |	0.04 | 0.852 | 1.006
+ρ² | 1.0 | 0.099 | 0.812 | 1.194
 
 # References
