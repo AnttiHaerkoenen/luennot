@@ -11,6 +11,7 @@ execute:
     enabled: true
 format: 
     revealjs:
+        embed-resources: true
         theme: simple
         incremental: true
         navigation-mode: vertical
@@ -82,7 +83,11 @@ m
 
 :::{.content-visible unless-format="pdf"}
 $$
-\begin{equation} P_{Lutheran} = \begin{split} (P_{total\_men}+P_{total\_women}) \\ − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) \end{split} \end{equation}
+\begin{equation} P_{Lutheran} = 
+  \begin{split} 
+    (P_{total\_men}+P_{total\_women}) \\ − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) 
+  \end{split}
+\end{equation}
 $$
 :::
 
@@ -144,7 +149,6 @@ w_{ij} =
 \end{cases} 
 $$
 :::
-
 
 ## Biweight kernel
 
@@ -329,7 +333,75 @@ Variable | Mean | SD | HDI, 95% |
 β3,0 | 0.016 | 0.272 | −0.54 | 0.515
 β3,1 | 0 | 0.069 | −0.141 | 0.135
 β3,2 | −0.496 | 0.248 | −0.991 | −0.024
-scaled η² | 0.93 |	0.04 | 0.852 | 1.006
+scaled η² | 0.93 | 0.04 | 0.852 | 1.006
 ρ² | 1.0 | 0.099 | 0.812 | 1.194
+
+# Change of segregation
+
+## Spline model (1)
+
+:::{.fragment}
+$$ 
+S_i \sim Normal(\mu_i, \sigma)
+$$
+:::
+
+:::{.fragment}
+$$
+\mu_i = \alpha + \sum_{k=1}^K w_k B_{k,i} 
+$$
+:::
+
+:::{.fragment}
+$$ 
+\alpha \sim Normal(0.45, 0.01) 
+$$
+$$ 
+\sigma \sim HalfNormal(0.05) 
+$$
+:::
+
+## Spline model (2)
+
+:::{.fragment}
+$$
+B = \begin{bmatrix}
+       1 & 0.687 & 0.295 & 0.02  & 0     & 0     & 0     & 0 \\
+       0 & 0.299 & 0.601 & 0.612 & 0.367 & 0.276 & 0.007 & 0 \\
+       0 & 0.015 & 0.104 & 0.367 & 0.612 & 0.658 & 0.209 & 0 \\
+       0 & 0     & 0     & 0     & 0.02  & 0.066 & 0.784 & 1
+    \end{bmatrix}
+$$
+:::
+
+:::{.fragment}
+$$ 
+w_k \sim Normal(0, 0.1) 
+$$
+:::
+
+## Spline model code
+
+```{python}
+#| eval: false
+#| echo: true
+#| code-line-numbers: '|4|5|9|10'
+
+import pymc as pm
+
+with pm.Model() as model:
+    a = pm.Normal("α", μ_a, σ_a)
+    w = pm.Normal("w", mu=μ_w, sigma=σ_w, shape=B.shape[1])
+    μ = pm.Deterministic(
+      "μ", a + pm.math.dot(np.asarray(B, order="F"), w.T
+    ))
+    σ = pm.HalfNormal('σ', σ_σ)
+    S = pm.Normal("S", μ, σ, observed=regression_data['200'])
+    idata = pm.sample(1000, tune=1000, chains=2)
+```
+
+## 
+
+![](plate_diagram_2.png){fig-alt="Plate diagram of Bayesian spline regression model"}
 
 # References
