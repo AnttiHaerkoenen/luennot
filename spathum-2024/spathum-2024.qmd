@@ -16,34 +16,24 @@ format:
         incremental: true
         navigation-mode: vertical
         transition: convex
+        logo: UEF_logo.jpg
+        footer: "Antti Härkönen 2024"
 ---
 
 # Introduction
 
-## Vyborg, a Karelian city
+## Spatial segregation
 
-::: {.notes}
-Spatial differentiation of social groups within urban space is a classic theme of urban ecology and sociology. Segregation is a phenomenon that has major implications for social cohesion of societies and the wellbeing of individuals. Consequently, many models of segregation and assimilation have been proposed, both for the modern and the pre-industrial urban societies. In this paper, the spatial segregation of a minority in an industrialising city is studied using empirical data concerning the Russian population of Vyborg in 1880. Socioeconomic segregation is also studied, but only as a possible cause of ethnic segregation.
+- a classic theme of urban sociology
+- implications both for individuals and society
+- causes of spatial segregation studied using empirical data
+- socio-economic segregation studied as a possible cause of ethnic segregation
 
-Vyborg (Viipuri, Viborg), originally a medieval trading post and stronghold founded by the Swedes, was conquered by Russians in the Great Northern War. Under Swedish rule, the city had an elite that spoke Swedish and German and commoners who spoke Finnish, just like the peasants in the surrounding area. After the Russian conquest, a large garrison was established. The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans. Russians remained a large and distinctive minority in Vyborg until the upheavals during and after World War One.
-
-The spatial data are derived from historical maps and tax records. Digitised cadastral maps provide accurate location information. The religion of the inhabitants was recorded in the poll tax registers from 1880 onward. Since every household is tied to a cadastral plot, the density of populations can be tracked in high resolution, unlike censuses. In Vyborg, the Orthodox denomination can be used as a proxy for Russian speakers. The income level can be determined based on total income tax paid. This data is provided by municipal income tax records from 1880.
-
-Several hypotheses for explaining segregation are considered, based on earlier research: policies of segregation, guild-based differentiation, discrimination from above, prejudice between groups, income-based differentiation between groups, differences in preferences, and differences of housing-market information. The main drivers of spatial segregation seem to have been the decrees enforced by both the Russian military administration and the town’s civilian administration. At one time, when the administrations intended to separate Finnish and Russian lower classes on separate suburbs on the opposite sides of the city. Many of the poorer inhabitants were also de facto driven out from within the walls after fires. There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
-
-To test the impact of income on the location of the Russians, a spatial regression analysis is performed. The predicted variable is the proportion of the Russians in a location (N=540), and the predictors are the natural logarithm of the average local income and distance to the nearest Orthodox church. The form of the model is a Bayesian multilevel linear regression model with spatial correlation between observations. The coefficients of the linear regression are different for each of the three areas of Vyborg. These are the western suburb, the centre within the walls, and the eastern suburbs. This means that the effects of predictors on Russian population density can vary. There is also hyperparameter that acts as a restraint on the regression coefficients of the areas. In other words, the observations are partially pooled, which combines the flexibility of treating areas as separate (unpooled observations) with the robustness of using all observations (pooled observations).
-
-The results indicate that neither the different preferences of Russians and others nor the income differences between areas explain the distribution of Russians. The posterior distributions of regression coefficients are relatively wide, but they tend to be around zero. In other words, predictors have little effect on the proportion of Russian population.
-
-According to the classic models of segregation, segregation gradually diminishes due to social diffusion. However, segregation-driving policy decisions of the eighteenth and early nineteenth centuries were still visible in the data from 1880. Interestingly, while the segregation of Russians decreases during fin de siècle, it begins increasing around 1900. One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
-
-To conclude, segregation in Vyborg cannot be explained by any single cause. The explanations behind segregation are most likely a complex system of causal links that are hard to untangle with empirical research. However, the use of high-quality spatial data allows the rejection of overly simplistic explanations.
-:::
-
-## Map
+##
 :::{.content-visible unless-format="pdf"}
 ```{python}
-from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles
+
+from ipyleaflet import Map, Marker, FullScreenControl, basemaps, basemap_to_tiles
 m = Map(
   basemap=basemap_to_tiles(
     basemaps.OpenTopoMap
@@ -52,6 +42,7 @@ m = Map(
   zoom=5
 )
 m.add_layer(Marker(location=(60.715591, 28.729147)))
+m.add(FullScreenControl())
 m
 ```
 :::
@@ -65,7 +56,23 @@ m
 - castle founded in the late 13th century
 - town privileges 1403
 
-# Sources
+::: {.notes}
+Vyborg (Viipuri, Viborg), originally a medieval trading post and stronghold founded by the Swedes, was conquered by Russians in the Great Northern War. Under Swedish rule, the city had an elite that spoke Swedish and German and commoners who spoke Finnish, just like the peasants in the surrounding area. After the Russian conquest, a large garrison was established. The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans. Russians remained a large and distinctive minority in Vyborg until the upheavals during and after World War One.
+:::
+
+## Causes of segregation
+
+::: {.notes}
+Several hypotheses for explaining segregation are considered, based on earlier research: policies of segregation, guild-based differentiation, discrimination from above, prejudice between groups, income-based differentiation between groups, differences in preferences, and differences of housing-market information. The main drivers of spatial segregation seem to have been the decrees enforced by both the Russian military administration and the town’s civilian administration. At one time, when the administrations intended to separate Finnish and Russian lower classes on separate suburbs on the opposite sides of the city. Many of the poorer inhabitants were also de facto driven out from within the walls after fires. There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
+:::
+
+# Data
+
+## Sources used
+
+::: {.notes}
+The spatial data are derived from historical maps and tax records. Digitised cadastral maps provide accurate location information. The religion of the inhabitants was recorded in the poll tax registers from 1880 onward. Since every household is tied to a cadastral plot, the density of populations can be tracked in high resolution, unlike censuses. In Vyborg, the Orthodox denomination can be used as a proxy for Russian speakers. The income level can be determined based on total income tax paid. This data is provided by municipal income tax records from 1880.
+:::
 
 ## Poll tax records {.scrollable .smaller}
 
@@ -237,10 +244,6 @@ plt.show()
 ```
 :::
 
-# Segregation
-
-## 1700s
-
 ##
 
 ![](vyborg_1768.jpeg){fig-alt="Map Vyborg plot owners in 1768"}
@@ -254,6 +257,12 @@ plt.show()
 ![](income.jpeg){fig-alt="Map of income distribution in Vyborg"}
 
 # Explaining segregation
+
+## 
+
+::: {.notes}
+To test the impact of income on the location of the Russians, a spatial regression analysis is performed. The predicted variable is the proportion of the Russians in a location (N=540), and the predictors are the natural logarithm of the average local income and distance to the nearest Orthodox church. The form of the model is a Bayesian multilevel linear regression model with spatial correlation between observations. The coefficients of the linear regression are different for each of the three areas of Vyborg. These are the western suburb, the centre within the walls, and the eastern suburbs. This means that the effects of predictors on Russian population density can vary. There is also hyperparameter that acts as a restraint on the regression coefficients of the areas. In other words, the observations are partially pooled, which combines the flexibility of treating areas as separate (unpooled observations) with the robustness of using all observations (pooled observations).
+:::
 
 ## Regression model (1) {.smaller}
 
@@ -426,5 +435,24 @@ with pm.Model() as model:
 ## 
 
 ![](plate_diagram_2.png){fig-alt="Plate diagram of Bayesian spline regression model"}
+
+# Results
+
+## 
+
+::: {.notes}
+The results indicate that neither the different preferences of Russians and others nor the income differences between areas explain the distribution of Russians. The posterior distributions of regression coefficients are relatively wide, but they tend to be around zero. In other words, predictors have little effect on the proportion of Russian population.
+According to the classic models of segregation, segregation gradually diminishes due to social diffusion. However, segregation-driving policy decisions of the eighteenth and early nineteenth centuries were still visible in the data from 1880. Interestingly, while the segregation of Russians decreases during fin de siècle, it begins increasing around 1900. One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
+:::
+
+# Conclusions
+
+## Segregation
+
+::: {.notes}
+To conclude, segregation in Vyborg cannot be explained by any single cause. The explanations behind segregation are most likely a complex system of causal links that are hard to untangle with empirical research. However, the use of high-quality spatial data allows the rejection of overly simplistic explanations.
+:::
+
+## Bayesian multilevel models
 
 # References
