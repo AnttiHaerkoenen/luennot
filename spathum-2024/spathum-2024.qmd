@@ -17,7 +17,6 @@ format:
         navigation-mode: vertical
         transition: convex
         logo: UEF_logo.jpg
-        footer: "Antti Härkönen 2024"
 ---
 
 # Introduction
@@ -51,19 +50,133 @@ m
 ![](vyborg-loc.png){fig-alt="Location of Vyborg on map"}
 :::
 
-## Vyborg, a Karelian city
+## Vyborg
 
-- castle founded in the late 13th century
+- Vyborg ^[fi. Viipuri, sw. Viborg] castle founded in the late 13th century
 - town privileges 1403
+- conquered by Russians in the Great Northern War (1700&ndash;1721)
+
+## Population
+
+- German and Swedish speaking Lutheran elites
+- Finnish commoners
+- large Russian garrison 1710&ndash;1917
+- Russian garrison brought Russian civilians with them
 
 ::: {.notes}
-Vyborg (Viipuri, Viborg), originally a medieval trading post and stronghold founded by the Swedes, was conquered by Russians in the Great Northern War. Under Swedish rule, the city had an elite that spoke Swedish and German and commoners who spoke Finnish, just like the peasants in the surrounding area. After the Russian conquest, a large garrison was established. The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans. Russians remained a large and distinctive minority in Vyborg until the upheavals during and after World War One.
+The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans.
 :::
 
-## Causes of segregation
+# Segregation
+
+## Causes of segregation {#causes .smaller}
+
+Pre-modern causes:
+
+(@) ```{=html}
+<a href="#/policies">policies of segregation</a>
+```
+(@) ```{=html}
+<a href="#/guilds">guild-based segregation</a>
+```
+
+Modern causes^[@dawkins2004]:
+
+(@) ```{=html}
+<a href="#/discrimination">discrimination</a>
+```
+(@) ```{=html}
+<a href="#/prejudice">prejudice</a>
+```
+(@) ```{=html}
+<a href="#/income-differences">income differences</a>
+```
+(@) ```{=html}
+<a href="#/preferences">different preferences of groups</a>
+```
+(@) ```{=html}
+<a href="#/housing-information">different housing market information</a>
+```
+
+## Discrimination
+
+- lateral
+- e.g. housing market discrimintion
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Prejudice
+
+- horizontal and possibly reciprocal
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Income differences {#income-differences}
+
+- socio-economic segregation
+- if incomes of groups different, will cause spatial segregation
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Different preferences {#preferences}
+
+- different groups value different things
+- location of services, e.g. churches
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Housing market information {#housing-information}
+
+- knowledge
+- differences in perceived value
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Segregation policies {#policies}
+
+- explicit policies of segregation
+- attempt to segregate Russian and Finnish commoners into different suburbs
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+## Guild-based differentiation {#guilds}
+
+- in pre-industrial world, guild members were expected to live near one another
+- most guilds in Vyborg tiny
+- some attempts to created own areas for retired soldiers and cart drivers
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
 
 ::: {.notes}
-Several hypotheses for explaining segregation are considered, based on earlier research: policies of segregation, guild-based differentiation, discrimination from above, prejudice between groups, income-based differentiation between groups, differences in preferences, and differences of housing-market information. The main drivers of spatial segregation seem to have been the decrees enforced by both the Russian military administration and the town’s civilian administration. At one time, when the administrations intended to separate Finnish and Russian lower classes on separate suburbs on the opposite sides of the city. Many of the poorer inhabitants were also de facto driven out from within the walls after fires. There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
+There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
 :::
 
 # Data
@@ -258,10 +371,23 @@ plt.show()
 
 # Explaining segregation
 
-## 
+## Regression model
+
+- Bayesian multilevel linear regression model with spatial correlation between observations (N=540)
+- predictors are the natural logarithm of average local income and distance to nearest orthodox church
+- predicted variable is the proportion of Russians in a location
+- regression coefficients are different for each area of Vyborg
 
 ::: {.notes}
-To test the impact of income on the location of the Russians, a spatial regression analysis is performed. The predicted variable is the proportion of the Russians in a location (N=540), and the predictors are the natural logarithm of the average local income and distance to the nearest Orthodox church. The form of the model is a Bayesian multilevel linear regression model with spatial correlation between observations. The coefficients of the linear regression are different for each of the three areas of Vyborg. These are the western suburb, the centre within the walls, and the eastern suburbs. This means that the effects of predictors on Russian population density can vary. There is also hyperparameter that acts as a restraint on the regression coefficients of the areas. In other words, the observations are partially pooled, which combines the flexibility of treating areas as separate (unpooled observations) with the robustness of using all observations (pooled observations).
+The coefficients of the linear regression are different for each of the three areas of Vyborg. These are the western suburb, the centre within the walls, and the eastern suburbs. This means that the effects of predictors on Russian population density can vary.
+:::
+
+## Partial pooling
+
+- observations are partially pooled
+
+::: {.notes}
+There is also hyperparameter that acts as a restraint on the regression coefficients of the areas. In other words, the observations are partially pooled, which combines the flexibility of treating areas as separate (unpooled observations) with the robustness of using all observations (pooled observations).
 :::
 
 ## Regression model (1) {.smaller}
@@ -346,28 +472,6 @@ d | 540 x 540 |	Distance matrix holding pairwise distances between plots
 
 ![](plate_diagram_1.jpeg){fig-alt="Plate diagram of Bayesian regression model"}
 
-## Results {.scrollable .smaller}
-
-Variable | Mean | SD | HDI, 95% |
-:---|:---|:---|---:|:---
-θ0 | −0.027	| 0.096 | −0.227 | 0.15
-θ1 | 0.027 |	0.085	| −0.142 | 0.193
-θ2 | −0.135 | 0.096 | −0.309 | 0.067
-β0,0 | −0.609 | 0.299 | −1.162 | −0.013
-β0,1 | 0.104 | 0.056 | −0.009 | 0.209
-β0,2 | −1.076 | 0.314 | −1.702 | −0.487
-β1,0 | 0.097 | 0.3 | −0.46 | 0.743
-β1,1 | 0.142 | 0.14 | −0.117 | 0.433
-β1,2 | −0.037 | 0.316 | −0.625 | 0.626
-β2,0 | 0.118 | 0.299 | −0.509 | 0.677
-β2,1 | 0.119 | 0.074 | −0.024 | 0.261
-β2,2 | −0.287 | 0.312 | −0.905 | 0.306
-β3,0 | 0.016 | 0.272 | −0.54 | 0.515
-β3,1 | 0 | 0.069 | −0.141 | 0.135
-β3,2 | −0.496 | 0.248 | −0.991 | −0.024
-scaled η² | 0.93 | 0.04 | 0.852 | 1.006
-ρ² | 1.0 | 0.099 | 0.812 | 1.194
-
 # Change of segregation
 
 ## Spline model (1)
@@ -438,21 +542,53 @@ with pm.Model() as model:
 
 # Results
 
-## 
+## Regression
+
+- no evidence for income or preferences as causes of segregation
+
+## Change over time
+
+- spatial segregation decreases 1880&ndash;1900 and increases 1900&ndash;1917
+- exogamy rate of Russians declines constantly 1880&ndash;1917
+- concentrations of Russians changes over time
+- changes of urban space likely decreased segregation after 1860
 
 ::: {.notes}
-The results indicate that neither the different preferences of Russians and others nor the income differences between areas explain the distribution of Russians. The posterior distributions of regression coefficients are relatively wide, but they tend to be around zero. In other words, predictors have little effect on the proportion of Russian population.
-According to the classic models of segregation, segregation gradually diminishes due to social diffusion. However, segregation-driving policy decisions of the eighteenth and early nineteenth centuries were still visible in the data from 1880. Interestingly, while the segregation of Russians decreases during fin de siècle, it begins increasing around 1900. One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
+ One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
 :::
+
+## {.scrollable .smaller}
+
+Variable | Mean | SD | HDI, 95% |
+:---|:---|:---|---:|:---
+θ0 | −0.027	| 0.096 | −0.227 | 0.15
+θ1 | 0.027 |	0.085	| −0.142 | 0.193
+θ2 | −0.135 | 0.096 | −0.309 | 0.067
+β0,0 | −0.609 | 0.299 | −1.162 | −0.013
+β0,1 | 0.104 | 0.056 | −0.009 | 0.209
+β0,2 | −1.076 | 0.314 | −1.702 | −0.487
+β1,0 | 0.097 | 0.3 | −0.46 | 0.743
+β1,1 | 0.142 | 0.14 | −0.117 | 0.433
+β1,2 | −0.037 | 0.316 | −0.625 | 0.626
+β2,0 | 0.118 | 0.299 | −0.509 | 0.677
+β2,1 | 0.119 | 0.074 | −0.024 | 0.261
+β2,2 | −0.287 | 0.312 | −0.905 | 0.306
+β3,0 | 0.016 | 0.272 | −0.54 | 0.515
+β3,1 | 0 | 0.069 | −0.141 | 0.135
+β3,2 | −0.496 | 0.248 | −0.991 | −0.024
+scaled η² | 0.93 | 0.04 | 0.852 | 1.006
+ρ² | 1.0 | 0.099 | 0.812 | 1.194
 
 # Conclusions
 
 ## Segregation
 
+- no monocausal explanations work
+- more complex causal system likely at work
+- high quality spatial data allows rejection of overtly simplistic models
+
 ::: {.notes}
 To conclude, segregation in Vyborg cannot be explained by any single cause. The explanations behind segregation are most likely a complex system of causal links that are hard to untangle with empirical research. However, the use of high-quality spatial data allows the rejection of overly simplistic explanations.
 :::
-
-## Bayesian multilevel models
 
 # References
