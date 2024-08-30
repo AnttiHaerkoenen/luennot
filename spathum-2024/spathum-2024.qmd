@@ -61,7 +61,6 @@ m
 - German and Swedish speaking Lutheran elites
 - Finnish commoners
 - large Russian garrison 1710&ndash;1917
-- Russian garrison brought Russian civilians with them
 
 ::: {.notes}
 The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans.
@@ -121,8 +120,7 @@ Modern causes^[@dawkins2004]:
 
 ## Income differences {#income-differences}
 
-- socio-economic segregation
-- if incomes of groups different, will cause spatial segregation
+- socio-economic segregation creates ethnic segregation
 
 ```{=html}
 <div>
@@ -181,7 +179,15 @@ There are still concentrations of the Russian minority in areas which were inhab
 
 # Data
 
-## Sources used
+## Sources used {.smaller}
+
+Signum | Original year | Digitization process
+---|---|---
+Town plan of Vyborg. Vyborg military engineer detachment’s archive of plans for fortifications and buildings, 7, 11. | 1878 | Georeferenced using ground control points, vectorized manually into shapefile
+Vyborg province poll tax registers | 1880 | Digitized manually into CSV
+Financial office of the city of Vyborg, Municipal tax levies and payment registers | 1880 | Digitized manually into CSV
+
+: Sources from the National archives of Finland {.striped .hover}
 
 ::: {.notes}
 The spatial data are derived from historical maps and tax records. Digitised cadastral maps provide accurate location information. The religion of the inhabitants was recorded in the poll tax registers from 1880 onward. Since every household is tied to a cadastral plot, the density of populations can be tracked in high resolution, unlike censuses. In Vyborg, the Orthodox denomination can be used as a proxy for Russian speakers. The income level can be determined based on total income tax paid. This data is provided by municipal income tax records from 1880.
@@ -235,16 +241,6 @@ $$
 P_{Lutheran} = (P_{total\_men}+P_{total\_women}) − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion})
 $$
 :::
-
-## Digitized sources {.smaller}
-
-Signum | Original year | Digitization process
----|---|---
-Town plan of Vyborg. Vyborg military engineer detachment’s archive of plans for fortifications and buildings, 7, 11. | 1878 | Georeferenced using ground control points, vectorized manually into shapefile
-Vyborg province poll tax registers | 1880 | Digitized manually into CSV
-Financial office of the city of Vyborg, Municipal tax levies and payment registers | 1880 | Digitized manually into CSV
-
-: Sources from the National archives of Finland {.striped .hover}
 
 # Growth of Vyborg
 
@@ -474,17 +470,37 @@ d | 540 x 540 |	Distance matrix holding pairwise distances between plots
 
 # Change of segregation
 
+## Surface-based segregation index
+
+- index S works by comparing changes in population density surfaces
+
+## S
+
+:::{.fragment}
+after @wong2007
+:::
+
+:::{.fragment}
+$$
+S = 1 - \frac{∯_R min(p_{L}, p_{O}) \hspace{2mm}dR}{∯_R max(p_{L}, p_{O}) \hspace{2mm}dR}
+$$
+:::
+
+:::{.fragment}
+where $p_L$ and $p_O$ are the normalised population densities of Lutheran and Orthodox populations respectively
+:::
+
 ## Spline model (1)
 
 :::{.fragment}
 $$ 
-S_i \sim Normal(\mu_i, \sigma)
+S_{year} \sim Normal(\mu_{year}, \sigma)
 $$
 :::
 
 :::{.fragment}
 $$
-\mu_i = \alpha + \sum_{k=1}^K w_k B_{k,i} 
+\mu_{year} = \alpha + \sum_{k=1}^K w_k B_{k,year} 
 $$
 :::
 
@@ -552,7 +568,10 @@ with pm.Model() as model:
 - exogamy rate of Russians declines constantly 1880&ndash;1917
 - concentrations of Russians changes over time
 - changes of urban space likely decreased segregation after 1860
+e likely decreased segregation after 1860
 
+::: {.notes}
+ One explanation for th
 ::: {.notes}
  One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
 :::
