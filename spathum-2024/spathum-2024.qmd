@@ -28,10 +28,11 @@ format:
 - causes of spatial segregation studied using empirical data
 - socio-economic segregation studied as a possible cause of ethnic segregation
 
-##
+## Location of Vyborg
+
 :::{.content-visible unless-format="pdf"}
 ```{python}
-
+from ipywidgets import HTML
 from ipyleaflet import Map, Marker, FullScreenControl, basemaps, basemap_to_tiles
 m = Map(
   basemap=basemap_to_tiles(
@@ -40,7 +41,8 @@ m = Map(
   center=(60.715591, 28.729147),
   zoom=5
 )
-m.add_layer(Marker(location=(60.715591, 28.729147)))
+message = HTML(value="<b>Vyborg</b>")
+m.add_layer(Marker(location=(60.715591, 28.729147), popup=message))
 m.add(FullScreenControl())
 m
 ```
@@ -70,7 +72,9 @@ The military units also brought civilians with them, not only families of soldie
 
 ## Causes of segregation {#causes .smaller}
 
+::: {.fragment}
 Pre-modern causes:
+:::
 
 (@) ```{=html}
 <a href="#/policies">policies of segregation</a>
@@ -79,7 +83,9 @@ Pre-modern causes:
 <a href="#/guilds">guild-based segregation</a>
 ```
 
+::: {.fragment}
 Modern causes^[@dawkins2004]:
+:::
 
 (@) ```{=html}
 <a href="#/discrimination">discrimination</a>
@@ -99,79 +105,79 @@ Modern causes^[@dawkins2004]:
 
 ## Discrimination
 
-- lateral
-- e.g. housing market discrimintion
-
 ```{=html}
 <div>
   <button class=navigation><a href="#/causes">Causes of segregation</a></button>
 </div>
 ```
+
+- lateral
+- e.g. housing market discrimination
 
 ## Prejudice
 
-- horizontal and possibly reciprocal
-
 ```{=html}
 <div>
   <button class=navigation><a href="#/causes">Causes of segregation</a></button>
 </div>
 ```
+
+- horizontal and possibly reciprocal
 
 ## Income differences {#income-differences}
 
-- socio-economic segregation creates ethnic segregation
-
 ```{=html}
 <div>
   <button class=navigation><a href="#/causes">Causes of segregation</a></button>
 </div>
 ```
 
+- socio-economic segregation creates ethnic segregation
+
 ## Different preferences {#preferences}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
 
 - different groups value different things
 - location of services, e.g. churches
 
+## Housing market information {#housing-information}
+
 ```{=html}
 <div>
   <button class=navigation><a href="#/causes">Causes of segregation</a></button>
 </div>
 ```
-
-## Housing market information {#housing-information}
 
 - knowledge
 - differences in perceived value
 
-```{=html}
-<div>
-  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
-</div>
-```
-
 ## Segregation policies {#policies}
 
+```{=html}
+<div>
+  <button class=navigation><a href="#causes">Causes of segregation</a></button>
+</div>
+```
+
 - explicit policies of segregation
-- attempt to segregate Russian and Finnish commoners into different suburbs
+- attempts to segregate Russian and Finnish commoners into different suburbs
+
+## Guild-based differentiation {#guilds}
 
 ```{=html}
 <div>
   <button class=navigation><a href="#/causes">Causes of segregation</a></button>
 </div>
 ```
-
-## Guild-based differentiation {#guilds}
 
 - in pre-industrial world, guild members were expected to live near one another
 - most guilds in Vyborg tiny
 - some attempts to created own areas for retired soldiers and cart drivers
-
-```{=html}
-<div>
-  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
-</div>
-```
 
 ::: {.notes}
 There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
@@ -269,7 +275,7 @@ $$
 
 ## Population surface model {.smaller}
 
-:::{.fragment .fade-in-then-out}
+:::{.fragment}
 Based on @martin2000.
 :::
 
@@ -279,7 +285,7 @@ P_i=\sum^N_{j=1} P_j w_{ij}
 $$
 :::
 
-:::{.fragment .fade-in .content-visible unless-format="pdf"}
+:::{.fragment}
 $$
 w_{ij} = 
 \begin{cases} 
@@ -568,10 +574,7 @@ with pm.Model() as model:
 - exogamy rate of Russians declines constantly 1880&ndash;1917
 - concentrations of Russians changes over time
 - changes of urban space likely decreased segregation after 1860
-e likely decreased segregation after 1860
 
-::: {.notes}
- One explanation for th
 ::: {.notes}
  One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
 :::
@@ -611,3 +614,8 @@ To conclude, segregation in Vyborg cannot be explained by any single cause. The 
 :::
 
 # References
+
+---
+nocite: |
+  @*
+---
