@@ -1,0 +1,28 @@
+% Viipurin venäläisten segregaatio
+% Antti Härkönen
+
+---
+title: 'Viipurin venäläisten segregaatio'
+author: 'Antti Härkönen'
+date: 2025-02-19
+echo: false
+warning: false
+execute:
+    enabled: true
+format: 
+    revealjs:
+        embed-resources: true
+        theme: simple
+        incremental: true
+        navigation-mode: vertical
+        transition: convex
+---
+
+#
+
+##
+
+# Lähteet
+
+## Lähteet {.smaller}
+

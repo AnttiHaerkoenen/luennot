@@ -1,5 +1,9 @@
 # Suomen historian Ruotsin ajan erityiskysymyksiä
 
+## 2025
+
+[Luento](./ruotsin-ajan-2025/ruotsin-ajan-2025.html)
+
 ## 2022 & 2024
 
 [Luento](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html) ([tulostettava](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html))

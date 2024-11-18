@@ -15,11 +15,7 @@ variola:
 
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
-	pandoc -t revealjs -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md \
-	-o ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html -i --slide-level 2 -V lang=fi -V theme=white \
- 	--embed-resources --standalone
-	pandoc -s ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.md -o \
-	./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html --embed-resources --standalone
+	quarto render ./ruotsin-ajan-2025/ruotsin-ajan-2025.qmd
 
 ## The curse of spatial scale
 spatial_scale:
