@@ -15,7 +15,7 @@ variola:
 
 ## Ruotsin ajan erityiskysymyksiä
 ruotsin_aika:
-	quarto render ./ruotsin-ajan-2025/ruotsin-ajan-2025.qmd
+	quarto render ./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-2025.qmd
 
 ## The curse of spatial scale
 spatial_scale:
