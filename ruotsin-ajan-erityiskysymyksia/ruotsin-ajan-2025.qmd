@@ -32,17 +32,27 @@ format:
 - 1600-luvun alussa muutama pieni kivirakennus
 - 1860 suuri enemmistö kivirakennuksia
 - enemmistössä silti 2-kerrosta
+- useampikerroksiset vuokrakerrostalot 1890-luvulta alk.
 
 ##
 
 ![kivirakennusten määrä Vanhassa kaupungissa](./img/kivirakennukset.png)
 
-## Regulaatio
+## Ruutukaava
 
 - "luonnollisista" kaduista kankeaan ruutukaavaan
+- säännöllisyys ihanne Euroopassa jo keskiajalla
 - renessanssin ihanne: Vitruviuksen kaupunki
+
+##
+
+![Vitruviuksen ihminen](https://upload.wikimedia.org/wikipedia/commons/1/16/De_Architectura030.jpg)
+
+## Regulaatio
+
 - säännölliset tontit
 - Per Brahe ja maanmittarit
+- geometrinen maanmittaus yleistyy
 
 ## Paloturvallisuus
 
