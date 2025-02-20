@@ -2,7 +2,7 @@
 
 ## 2025
 
-[Luento](./ruotsin-ajan-2025/ruotsin-ajan-2025.html)
+[Luento](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-2025.html)
 
 ## 2022 & 2024
 
