@@ -1,6 +1,5 @@
 ---
-title: 'Causes of ethnic segregation in a nineteenth century city'
-subtitle: 'The case of Vyborg'
+title: 'Causes of ethnic segregation in late 19th century Vyborg'
 author: 'Antti Härkönen'
 institute: UEF
 date: 2025-04-11
