@@ -1,0 +1,343 @@
+---
+title: 'Causes of ethnic segregation in a nineteenth century city'
+subtitle: 'The case of Vyborg'
+author: 'Antti Härkönen'
+institute: UEF
+date: 2025-04-11
+echo: false
+warning: false
+bibliography: references.bib
+execute:
+    enabled: true
+format: 
+    revealjs:
+        embed-resources: true
+        theme: simple
+        incremental: true
+        navigation-mode: vertical
+        transition: convex
+        logo: UEF_logo.jpg
+---
+
+# Introduction
+
+## Spatial segregation
+
+- a classic theme of urban sociology
+- implications both for individuals and society
+- causes of spatial segregation studied using empirical data
+- socio-economic segregation studied as a possible cause of ethnic segregation
+
+## Location of Vyborg
+
+:::{.content-visible unless-format="pdf"}
+```{python}
+from ipywidgets import HTML
+from ipyleaflet import Map, Marker, FullScreenControl, basemaps, basemap_to_tiles
+m = Map(
+  basemap=basemap_to_tiles(
+    basemaps.OpenTopoMap
+  ),
+  center=(60.715591, 28.729147),
+  zoom=5
+)
+message = HTML(value="<b>Vyborg</b>")
+m.add_layer(Marker(location=(60.715591, 28.729147), popup=message))
+m.add(FullScreenControl())
+m
+```
+:::
+
+:::{.content-visible when-format="pdf"}
+![](vyborg-loc.png){fig-alt="Location of Vyborg on map"}
+:::
+
+## Vyborg
+
+- Vyborg ^[fi. Viipuri, sw. Viborg] castle founded in the late 13th century
+- town privileges 1403
+- conquered by Russians in the Great Northern War (1700&ndash;1721)
+
+## Population
+
+- German and Swedish speaking Lutheran elites
+- Finnish commoners
+- large Russian garrison 1710&ndash;1917
+
+::: {.notes}
+The military units also brought civilians with them, not only families of soldiers and other camp followers, but also higher status persons, such as retired officers or wealthier merchants and artisans.
+:::
+
+# Segregation
+
+## Causes of segregation {#causes .smaller}
+
+::: {.fragment}
+Pre-modern causes:
+:::
+
+(@) ```{=html}
+<a href="#/policies">policies of segregation</a>
+```
+(@) ```{=html}
+<a href="#/guilds">guild-based segregation</a>
+```
+
+::: {.fragment}
+Modern causes^[@dawkins2004]:
+:::
+
+(@) ```{=html}
+<a href="#/discrimination">discrimination</a>
+```
+(@) ```{=html}
+<a href="#/prejudice">prejudice</a>
+```
+(@) ```{=html}
+<a href="#/income-differences">income differences</a>
+```
+(@) ```{=html}
+<a href="#/preferences">different preferences of groups</a>
+```
+(@) ```{=html}
+<a href="#/housing-information">different housing market information</a>
+```
+
+## Discrimination
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- lateral
+- e.g. housing market discrimination
+
+## Prejudice
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- horizontal and possibly reciprocal
+
+## Income differences {#income-differences}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- socio-economic segregation creates ethnic segregation
+
+## Different preferences {#preferences}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- different groups value different things
+- location of services, e.g. churches
+
+## Housing market information {#housing-information}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- knowledge
+- differences in perceived value
+
+## Segregation policies {#policies}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#causes">Causes of segregation</a></button>
+</div>
+```
+
+- explicit policies of segregation
+- attempts to segregate Russian and Finnish commoners into different suburbs
+
+## Guild-based differentiation {#guilds}
+
+```{=html}
+<div>
+  <button class=navigation><a href="#/causes">Causes of segregation</a></button>
+</div>
+```
+
+- in pre-industrial world, guild members were expected to live near one another
+- most guilds in Vyborg tiny
+- some attempts to created own areas for retired soldiers and cart drivers
+
+::: {.notes}
+There are still concentrations of the Russian minority in areas which were inhabited by Russians in the eighteenth century. Segregation based on membership of guilds was not significant based on previous research and distribution of masters. Most guilds in Vyborg were tiny, only having a few masters and journeymen as members. The remaining three potential causes of segregation, namely discrimination, prejudice, and differences in housing market information cannot be studied with the data available.
+:::
+
+# Data
+
+## Sources used {.smaller}
+
+Signum | Original year | Digitization process
+---|---|---
+Town plan of Vyborg. Vyborg military engineer detachment’s archive of plans for fortifications and buildings, 7, 11. | 1878 | Georeferenced using ground control points, vectorized manually into shapefile
+Vyborg province poll tax registers | 1880 | Digitized manually into CSV
+Financial office of the city of Vyborg, Municipal tax levies and payment registers | 1880 | Digitized manually into CSV
+
+: Sources from the National archives of Finland {.striped .hover}
+
+::: {.notes}
+The spatial data are derived from historical maps and tax records. Digitised cadastral maps provide accurate location information. The religion of the inhabitants was recorded in the poll tax registers from 1880 onward. Since every household is tied to a cadastral plot, the density of populations can be tracked in high resolution, unlike censuses. In Vyborg, the Orthodox denomination can be used as a proxy for Russian speakers. The income level can be determined based on total income tax paid. This data is provided by municipal income tax records from 1880.
+:::
+
+## Poll tax records {.scrollable .smaller}
+
+| column | description |
+|---:|:---|
+| plot_number | Plot number |
+| taxpayer_men | Men paying poll tax |
+| taxpayer_women | Women paying poll tax |
+| no_tax_men | Men exempt from poll tax |
+| no_tax_women | Women exempt from poll tax |
+| in_russia_men | Men legally residing in Russia proper |
+| in_russia_women | Women legally residing in Russia proper |
+| total_men | Total men |
+| total_women | Total women |
+| independent | Civil servants, entrepreneurs, and financially independent |
+| white_collar | White collar workers |
+| worker_industry | Workers in industry |
+| worker_other | Other workers |
+| servants | Servants |
+| other | Other employment status |
+| non_resident | Resident elsewhere |
+| orthodox | Orthodox |
+| other_christian | Non-Lutheran and non-Orthodox Christian |
+| other_religion | Other religions |
+| draftable | 21-year-old males eligible for draft |
+
+: poll tax record columns in 1894 {.striped .hover}
+
+## Estimating the size of Russian population
+
+- over 90% of Orthodox in Vyborg Russian
+
+## Estimating the size of Lutheran population
+
+:::{.content-visible unless-format="pdf"}
+$$
+\begin{equation} P_{Lutheran} = 
+  \begin{split} 
+    (P_{total\_men}+P_{total\_women}) \\ − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion}) 
+  \end{split}
+\end{equation}
+$$
+:::
+
+:::{.content-visible when-format="pdf"}
+$$
+P_{Lutheran} = (P_{total\_men}+P_{total\_women}) − (P_{Orthodox}+P_{other\_Christian}+P_{other\_religion})
+$$
+:::
+
+# Growth of Vyborg
+
+##
+
+![](vyborg_1839.jpeg){fig-alt="Map of Vyborg in 1839"}
+
+## Population growth
+
+| District | 1822 | 1880 |
+|----------|------|------|
+| Centre   | 1192 | 2506 |
+| St. Anna | 244 | 117 |
+| Vyborg suburb | 642 | 756 |
+| St Petersburg suburb | 1512 | 2685 |
+
+: Population growth in key areas {.striped .hover}
+
+# Spatial analyses
+
+##
+
+![](vyborg_1768.jpeg){fig-alt="Map Vyborg plot owners in 1768"}
+
+##
+
+![](orthodox_density.jpeg){fig-alt="Map of density of Orthodox population"}
+
+##
+
+![](income.jpeg){fig-alt="Map of income distribution in Vyborg"}
+
+# Explaining segregation
+
+## Regression model
+
+- Bayesian multilevel linear regression model with spatial correlation between observations (N=540)
+- predictors are the natural logarithm of average local income and distance to nearest orthodox church
+- predicted variable is the proportion of Russians in a location
+- regression coefficients are different for each area of Vyborg
+
+::: {.notes}
+The coefficients of the linear regression are different for each of the three areas of Vyborg. These are the western suburb, the centre within the walls, and the eastern suburbs. This means that the effects of predictors on Russian population density can vary.
+:::
+
+## Partial pooling
+
+- observations are partially pooled
+
+::: {.notes}
+There is also hyperparameter that acts as a restraint on the regression coefficients of the areas. In other words, the observations are partially pooled, which combines the flexibility of treating areas as separate (unpooled observations) with the robustness of using all observations (pooled observations).
+:::
+
+# Change of segregation
+
+## Surface-based segregation index
+
+- index S works by comparing changes in population density surfaces
+
+# Results
+
+## Regression
+
+- no evidence for income or preferences as causes of segregation
+
+## Change over time
+
+- spatial segregation decreases 1880&ndash;1900 and increases 1900&ndash;1917
+- exogamy rate of Russians declines constantly 1880&ndash;1917
+- concentrations of Russians changes over time
+- changes of urban space likely decreased segregation after 1860
+
+::: {.notes}
+ One explanation for this may be the political battle between Finnish nationalists and the Imperial regime, which intensified after 1899. The disappearance of old segregation patterns may be related to the changes in the build environment, since the new concentrations of Russians were different than those in 19th century.
+:::
+
+# Conclusions
+
+## Segregation
+
+- no monocausal explanations work
+- more complex causal system likely at work
+- high quality spatial data allows rejection of overtly simplistic models
+
+::: {.notes}
+To conclude, segregation in Vyborg cannot be explained by any single cause. The explanations behind segregation are most likely a complex system of causal links that are hard to untangle with empirical research. However, the use of high-quality spatial data allows the rejection of overly simplistic explanations.
+:::
+
+# References
+
+---
+nocite: |
+  @*
+---

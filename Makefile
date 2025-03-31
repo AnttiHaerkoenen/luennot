@@ -6,6 +6,8 @@
 spathum:
 	quarto render ./spathum-2024/spathum-2024.qmd
 	quarto render ./spathum-2024/spathum-2024.qmd -t pdf
+	quarto render ./spathum-2024/laiva-2025.qmd
+	quarto render ./spathum-2024/laiva-2025.qmd -t pdf
 
 ## Variola - Finland 1918-19
 variola:

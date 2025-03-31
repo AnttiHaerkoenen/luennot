@@ -31,3 +31,8 @@
 ## Bamberg 2024
 
 [Causes of ethnic segregation in a nineteenth century city](./spathum-2024/spathum-2024.html) ([PDF](./spathum-2024/spathum-2024.pdf))
+
+
+# Laiva 2025
+[Causes of ethnic segregation in a nineteenth century city](./spathum-2024/laiva-2025.html)
+ ([PDF](./spathum-2024/laiva-2025.pdf))
