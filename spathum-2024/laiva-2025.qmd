@@ -305,6 +305,160 @@ There is also hyperparameter that acts as a restraint on the regression coeffici
 
 - index S works by comparing changes in population density surfaces
 
+##
+
+```{python}
+#| label: MAUP
+#| fig-cap: "A visual example of MAUP"
+
+import numpy as np
+import matplotlib.pyplot as plt
+import geopandas as gpd
+from shapely import Polygon
+
+fig, axs = plt.subplots(1, 3, layout='constrained')
+
+rng = np.random.default_rng()
+x = rng.uniform(size=1_000)
+y = rng.beta(2, 1, size=1_000)
+
+points = gpd.GeoSeries.from_xy(x,y)
+areas_1 = gpd.GeoDataFrame(geometry=[Polygon(((0,1),(1,1),(1,0),(0,0)))])
+areas_2 = gpd.GeoDataFrame(geometry=[
+    Polygon(((0,1),(0.33,1),(0.33,0),(0,0))),
+    Polygon(((0.33,1),(0.67,1),(0.67,0),(0.33,0))),
+    Polygon(((0.67,1),(1,1),(1,0),(0.67,0))),
+])
+areas_3 = gpd.GeoDataFrame(geometry=[
+    Polygon(((0,1),(1,1),(1,0.67),(0,0.67))),
+    Polygon(((0,0.67),(1,0.67),(1,0.33),(0,0.33))),
+    Polygon(((0,0.33),(1,0.33),(1,0),(0,0))),
+])
+
+for area in [areas_1, areas_2, areas_3]:
+    count = []
+    for i in range(area.geometry.shape[0]):
+        count.append(points.within(area.geometry[i]).sum())
+    area['count'] = count
+    area['density'] = area['count'] / area.area
+
+classifier = {'bins': np.linspace(10, 2000, 200), 'lowest': 0}
+areas_1.plot(
+    ax=axs[0],
+    edgecolor='black',
+    zorder=1,
+    column='density',
+    cmap='OrRd',
+    scheme='userdefined',
+    classification_kwds=classifier,
+)
+areas_2.plot(
+    ax=axs[1],
+    edgecolor='black',
+    zorder=1,
+    column='density',
+    cmap='OrRd',
+    scheme='userdefined',
+    classification_kwds=classifier,
+)
+areas_3.plot(
+    ax=axs[2],
+    edgecolor='black',
+    zorder=1,
+    column='density',
+    cmap='OrRd',
+    scheme='userdefined',
+    classification_kwds=classifier,
+)
+
+for i in range(3):
+    points.plot(
+        ax=axs[i],
+        zorder=2,
+        color='black',
+        alpha=0.5,
+        markersize=0.5,
+    )
+    axs[i].set_axis_off()
+fig.show()
+
+```
+
+##
+
+```{python}
+#| label: MAUP_segregation
+#| fig-cap: "Effects of MAUP with segregation"
+
+import numpy as np
+import matplotlib.pyplot as plt
+import geopandas as gpd
+from shapely import Polygon
+from segregation.singlegroup import Dissim
+
+fig, axs = plt.subplots(1, 3, layout='constrained')
+
+rng = np.random.default_rng()
+x1 = rng.uniform(size=1_000)
+y1 = rng.beta(2, 1, size=1_000)
+x2 = rng.uniform(size=1_000)
+y2 = rng.uniform(size=1_000)
+
+points_1 = gpd.GeoSeries.from_xy(x1, y1)
+points_2 = gpd.GeoSeries.from_xy(x2, y2)
+
+D = []
+for area in [areas_1, areas_2, areas_3]:
+    count_1 = []
+    count_2 = []
+    for i in range(area.geometry.shape[0]):
+        count_1.append(points_1.within(area.geometry[i]).sum())
+        count_2.append(points_2.within(area.geometry[i]).sum())
+    area['count_1'] = count_1
+    area['count_2'] = count_2
+    area['total'] = area['count_1'] + area['count_2']
+    D.append(Dissim(area, 'count_1', 'total').statistic)
+
+areas_1.plot(
+    ax=axs[0],
+    edgecolor='black',
+    zorder=1,
+    color='white',
+)
+areas_2.plot(
+    ax=axs[1],
+    edgecolor='black',
+    zorder=1,
+    color='white',
+)
+areas_3.plot(
+    ax=axs[2],
+    edgecolor='black',
+    zorder=1,
+    color='white',
+)
+
+for i in range(3):
+    points_1.plot(
+        ax=axs[i],
+        zorder=2,
+        color='blue',
+        alpha=0.5,
+        markersize=0.5,
+    )
+    points_2.plot(
+        ax=axs[i],
+        zorder=3,
+        color='green',
+        alpha=0.5,
+        markersize=0.5,
+    )
+    axs[i].set_title(f'D={D[i]:.3f}')
+    axs[i].set_axis_off()
+fig.show()
+
+```
+
 # Results
 
 ## Regression
