@@ -9,6 +9,11 @@ spathum:
 	quarto render ./spathum-2024/laiva-2025.qmd
 	quarto render ./spathum-2024/laiva-2025.qmd -t pdf
 
+## NHM 2025
+nhm:
+	quarto render ./spathum-2024/nhm-2025.qmd
+	quarto render ./spathum-2024/nhm-2025.qmd -t pdf
+
 ## Variola - Finland 1918-19
 variola:
 	pandoc -t revealjs -s ./maantieteen-paivat-2023/variola.md \

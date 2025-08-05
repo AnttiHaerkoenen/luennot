@@ -10,6 +10,10 @@
 
 # Nordiska historikermötet
 
+## Reykjavik 2025
+
+[GIS and the study of the segregation of 19th century town of Vyborg](./spathum-2024/nhm-2025.html) ([print](./spathum-2024/nhm-2025.pdf))
+
 ## Göteborg 2022
 
 [The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html) ([print](./nhm-2022/curse-of-spatial-scale_print.html))
