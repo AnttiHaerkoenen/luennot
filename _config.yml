@@ -11,5 +11,5 @@ include:
 titles_from_headings:
   enabled: false
 theme: jekyll-theme-cayman
-title: Luennot
-description: Sekalaisia luentoja ja esityksiä
+title: Slides
+description: Miscellaneous slides
