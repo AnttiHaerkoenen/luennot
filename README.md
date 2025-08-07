@@ -6,23 +6,23 @@
 
 ## 2022 & 2024
 
-[Luento](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html) ([tulostettava](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html))
+[Luento](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia.html) ([pdf](./ruotsin-ajan-erityiskysymyksia/ruotsin-ajan-erityiskysymyksia_print.html))
 
 # Nordiska historikermötet
 
 ## Reykjavik 2025
 
-[GIS and the study of the segregation of 19th century town of Vyborg](./spathum-2024/nhm-2025.html) ([print](./spathum-2024/nhm-2025.pdf))
+[GIS and the study of the segregation of 19th century town of Vyborg](./spathum-2024/nhm-2025.html) ([pdf](./spathum-2024/nhm-2025.pdf))
 
 ## Göteborg 2022
 
-[The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html) ([print](./nhm-2022/curse-of-spatial-scale_print.html))
+[The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html) ([pdf](./nhm-2022/curse-of-spatial-scale_print.html))
 
 # Historiantutkimuksen päivät
 
 ## Tampere 2022
 
-[Viipurin henkikirjojen puuttuvat ortodoksit](./hitu-2022/puuttuvat-ortodoksit.html) ([tulostettava](./hitu-2022/puuttuvat-ortodoksit_print.html))
+[Viipurin henkikirjojen puuttuvat ortodoksit](./hitu-2022/puuttuvat-ortodoksit.html) ([pdf](./hitu-2022/puuttuvat-ortodoksit_print.html))
 
 # Maantieteen päivät
 
@@ -34,9 +34,8 @@
 
 ## Bamberg 2024
 
-[Causes of ethnic segregation in a nineteenth century city](./spathum-2024/spathum-2024.html) ([PDF](./spathum-2024/spathum-2024.pdf))
-
+[Causes of ethnic segregation in a nineteenth century city](./spathum-2024/spathum-2024.html) ([pdf](./spathum-2024/spathum-2024.pdf))
 
 # Laiva 2025
 [Causes of ethnic segregation in late 19th century Vyborg](./spathum-2024/laiva-2025.html)
- ([PDF](./spathum-2024/laiva-2025.pdf))
+ ([pdf](./spathum-2024/laiva-2025.pdf))
