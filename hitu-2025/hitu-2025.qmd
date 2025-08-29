@@ -1,0 +1,35 @@
+---
+title: 'Spatiaalinen verkostoanalyysi 1600-luvun porvariston lainaverkostojen tutkimuksessa'
+author: 'Antti Härkönen'
+institute: UEF
+date: 2025-10-17
+echo: false
+warning: false
+bibliography: references.bib
+execute:
+    enabled: true
+format: 
+    revealjs:
+        embed-resources: true
+        theme: simple
+        incremental: true
+        navigation-mode: vertical
+        transition: convex
+        logo: img/UEF_logo.jpg
+---
+
+# Johdanto
+
+## 1600-luvun voittomaat
+- Inkerinmaa ja Käkisalmen lääni Ruotsin voittomaita 1600-luvun ajan
+- Nevanlinna (Nyen)
+
+## Itärajan kaupungit -hanke
+
+# Spatiaalinen verkostoanalyysi
+
+## 
+
+# Aineisto
+
+## 
