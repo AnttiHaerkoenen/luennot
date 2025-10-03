@@ -33,3 +33,9 @@ format:
 # Aineisto
 
 ## 
+
+# Spatiaaliset verkostot
+
+##
+
+![Käkisalmelaisten verkostoja](./img/kexholm_spatial.png)
