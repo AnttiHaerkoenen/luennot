@@ -1,5 +1,5 @@
 ---
-title: 'Spatiaalinen verkostoanalyysi 1600-luvun porvariston lainaverkostojen tutkimuksessa'
+title: 'Spatiaalinen verkostoanalyysi 1600-luvun porvariston verkostojen tutkimuksessa'
 author: 'Antti Härkönen'
 institute: UEF
 date: 2025-10-17
@@ -22,17 +22,54 @@ format:
 
 ## 1600-luvun voittomaat
 - Inkerinmaa ja Käkisalmen lääni Ruotsin voittomaita 1600-luvun ajan
-- Nevanlinna (Nyen)
+- Nevanlinna (Nyen) syntyi skanssin ympärille Nevajoen suun lähelle
+
+##
+
+![projektissa tutkittavat kaupungit](./img/kaupungit.png)
 
 ## Itärajan kaupungit -hanke
+- Nevanlinna, Käkisalmi, Sortavala, Brahea, Kajaani
+- Käkisalmi: Antti Härkönen & Jenni Merovuo
+- valtaverkostot
+- aineiston kattavuusongelmia paljon, silti paras
 
 # Spatiaalinen verkostoanalyysi
 
-## 
+## SSNA
+- Spatial + SNA
+- klikkien alueellinen kattavuus
+- yhteyksien painotus etäisyyden mukaan
+- solmujen spatiaaliset keskeisyysluvut
+- spatiaaliset verkostot ja verkosto-optimointi?
+
+## Muita mahdollisuuksia
+- yhteyksien kulku solmujen ohi -> potentiaalinen yhteys, kuinka huomioidaan
+- aspatiaalisen verkoston ja spatiaalisen verkoston yhdistäminen
+- painovoimamalli? (käytetty arkeologiassa)
 
 # Aineisto
 
-## 
+## Tuomiokirjat
+- perinteinen lähdeaineisto
+- tutkimus enimmäkseen lähilukua
+
+## Kaukoluenta
+- Suuret aineistot
+- sumeat haut asiasanoilla
+- valitut käsittelyt muutetaan taulukkotietokannaksi
+
+## 3 + 1 datataulua
+1) käsittelyt 
+2) henkilöt 
+3) yhteydet 
+4) paikat
+
+## Datataulut
+- käsittelyt: olennainen informaatio käsittelyistä
+- henkilöt: solmujen ominaisuudet, saman henkilön duplikaattisarakkeet yhdistetään datan siivousvaiheessa
+- yhteydet: yhteyksien ominaisuudet, 1 rivi per yhteystyyppi per 2 henkilöä, aikatietoa ei tallenneta
+- paikat: karttojen perusteella tuotettu historiallinen paikkatietoaineisto (gpkg)
 
 # Spatiaaliset verkostot
 
