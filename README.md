@@ -18,13 +18,17 @@
 
 ### Göteborg 2022
 
-[The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html) ([pdf](./nhm-2022/curse-of-spatial-scale_print.html))
+[The curse of spatial scale in population statistics and how GIS can help](./nhm-2022/curse-of-spatial-scale.html)
 
 ## Historiantutkimuksen päivät
 
+### Jyväskylä 2025
+
+[Spatiaalinen verkostoanalyysi 1600-luvun porvariston verkostojen tutkimuksessa](./hitu-2025/hitu-2025.html) ([pdf](./hitu-2025/hitu-2025.pdf))
+
 ### Tampere 2022
 
-[Viipurin henkikirjojen puuttuvat ortodoksit](./hitu-2022/puuttuvat-ortodoksit.html) ([pdf](./hitu-2022/puuttuvat-ortodoksit_print.html))
+[Viipurin henkikirjojen puuttuvat ortodoksit](./hitu-2022/puuttuvat-ortodoksit.html)
 
 ## Maantieteen päivät
 
