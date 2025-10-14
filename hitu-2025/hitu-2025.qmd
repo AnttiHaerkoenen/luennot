@@ -43,6 +43,10 @@ format:
 - solmujen spatiaaliset keskeisyysluvut
 - spatiaaliset verkostot ja verkosto-optimointi?
 
+##
+
+![esimerkki klikeistä](./img/spat_verkosto.png)
+
 ## Muita mahdollisuuksia
 - yhteyksien kulku solmujen ohi -> potentiaalinen yhteys, kuinka huomioidaan
 - aspatiaalisen verkoston ja spatiaalisen verkoston yhdistäminen
@@ -55,7 +59,7 @@ format:
 - tutkimus enimmäkseen lähilukua
 
 ## Kaukoluenta
-- Suuret aineistot
+- suuret aineistot
 - sumeat haut asiasanoilla
 - valitut käsittelyt muutetaan taulukkotietokannaksi
 
