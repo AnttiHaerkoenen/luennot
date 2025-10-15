@@ -15,7 +15,7 @@ format:
         incremental: true
         navigation-mode: vertical
         transition: convex
-        logo: img/UEF_logo.jpg
+        logo: img/project.jpg
 ---
 
 # Johdanto
@@ -36,8 +36,8 @@ format:
 
 # Spatiaalinen verkostoanalyysi
 
-## SSNA
-- Spatial + SNA
+## SSN
+- Spatial social networks
 - klikkien alueellinen kattavuus
 - yhteyksien painotus etäisyyden mukaan
 - solmujen spatiaaliset keskeisyysluvut
